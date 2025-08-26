@@ -1,0 +1,65 @@
+{
+    "$schema": "https://superflytv.github.io/GraphicsDataDefinition/gdd-meta-schema/v1/schema.json",
+    "title": "Scoreboard",
+    "type": "object",
+    "properties": {
+        "color": {
+            "type": "string",
+            "enum": [
+                "modra",
+                "cervena",
+                "seda",
+                "bila",
+                "zluta",
+                "ruzova",
+                "fialova",
+                "zelena",
+                "cerna"
+            ],
+            "title": "Select Theme",
+            "gddType": "select",
+            "gddOptions": {
+                "labels": {
+                    "modra": "Blue",
+                    "cervena": "Red",
+                    "zelena": "Green",
+                    "seda": "Grey",
+                    "bila": "White",
+                    "zluta": "Yellow",
+                    "ruzova": "Pink",
+                    "fialova": "Purple",
+                    "tyrkysova": "Cyan",
+                    "cerna": "Black"
+                }
+            }
+        },
+        "countdownTo": {
+            "type": "string",
+            "title": "Countdown to (UNIX timestamp or ISO)",
+            "gddType": "single-line",
+            "gddOptions": {
+                "placeholder": "e.g. 1700000000 or 2025-08-27T15:00:00Z"
+            }
+        },
+        "homeName": {
+            "type": "string",
+            "title": "Home Team Name",
+            "gddType": "single-line"
+        },
+        "awayName": {
+            "type": "string",
+            "title": "Away Team Name",
+            "gddType": "single-line"
+        },
+        "lounge": {
+            "type": "string",
+            "title": "Lounge Name",
+            "gddType": "single-line"
+        },
+        "competition": {
+            "type": "string",
+            "title": "Competition Name",
+            "gddType": "single-line"
+        }
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Overlay</title>
+    <script src="./assets/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/output.css" />
+    <script name="graphics-data-definition" type="application/json+gdd" src="sponsors-carousel.gdd.json"></script>
+
+    <script>
+        const animateIn = 0.50;
+        const animateOut = 0.50;
+
+        async function play() {
+            const timeline = new gsap.timeline();
+
+            timeline.fromTo("#upper", { y: '-200%' }, { y: '0%', duration: 1 })
+            timeline.fromTo("#lower", { y: '-200%' }, { y: '0%', duration: 1 })
+            timeline.timeScale(timeline.duration() / animateIn);
+        }
+
+        function stop() {
+            const timeline = new gsap.timeline();
+
+            timeline.fromTo("#lower", { y: '0%' }, { y: '-200%', duration: 1 })
+            timeline.fromTo("#upper", { y: '0%' }, { y: '-200%', duration: 1 })
+            timeline.timeScale(timeline.duration() / animateOut);
+        }
+
+        function next() {
+            console.log('next()')
+        }
+
+        function update(raw) {
+            let sponsors = "";
+
+            const container = document.getElementById("lower");
+            const wrapper = document.getElementById("marquee-wrapper");
+            const text = document.getElementById("marquee-text");
+            const clone = document.getElementById("marquee-clone");
+
+            const data = JSON.parse(raw);
+
+            text.textContent = data.items.join(", ");
+            clone.textContent = text.textContent;
+
+            const textWidth = text.offsetWidth;
+
+            // nejdřív zrušíme případnou starou animaci
+            gsap.set(text, { x: 0 });
+            gsap.killTweensOf(wrapper);
+
+            gsap.to(wrapper, {
+                x: -textWidth,
+                duration: textWidth / 100,
+                ease: "linear",
+                repeat: -1
+            });
+        }
+
+        window.update = update;
+    </script>
+</head>
+
+<body class="w-screen h-screen overflow-hidden grid place-items-end p-16">
+    <section class="flex flex-col w-full overflow-hidden relative">
+        <div id="upper"
+            class="bg-primary text-primary-foreground text-xl p-2 font-bold uppercase relative z-10 transform translate-y-[-20vh]" >
+            Sponzoři pořadu</div>
+        <div id="lower"
+            class="bg-secondary text-secondary-foreground text-lg p-2 relative w-full overflow-hidden z-0 transform translate-y-[-20vh]">
+            <div class="whitespace-nowrap" id="marquee-wrapper">
+                <span id="marquee-text"></span>
+                <span id="marquee-clone"></span>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

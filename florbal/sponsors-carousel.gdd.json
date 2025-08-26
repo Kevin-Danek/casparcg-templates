@@ -1,0 +1,17 @@
+{
+    "$schema": "https://superflytv.github.io/GraphicsDataDefinition/gdd-meta-schema/v1/schema.json",
+    "title": "Sponsors Carousel",
+    "type": "object",
+    "properties": {
+        "items": {
+            "description": "Seznam textů",
+            "type": "array",
+            "gddType": "list",
+            "items": {
+                "type": "string",
+                "gddType": "single-line"
+            },
+            "minItems": 1
+        }
+    }
+}

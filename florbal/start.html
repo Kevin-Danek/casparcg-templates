@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Overlay</title>
+    <link rel="stylesheet" href="assets/output.css" />
+    <script name="graphics-data-definition" type="application/json+gdd" src="start.gdd.json"></script>
+
+    <script>
+
+        const countdown = (() => {
+            let intervalId = null;
+
+            function pad(value) {
+                return value.toString().padStart(2, '0');
+            }
+
+            function parseTarget(input) {
+                const num = Number(input);
+                if (!isNaN(num) && /^\d+$/.test(input)) {
+                    // Unix timestamp (seconds)
+                    return new Date(num * 1000);
+                }
+                // Fallback to ISO or other supported format
+                const parsed = new Date(input);
+                return isNaN(parsed) ? null : parsed;
+            }
+
+            function formatDiff(diff) {
+                const hours = pad(Math.floor(diff / 3600));
+                const minutes = pad(Math.floor((diff % 3600) / 60));
+                const seconds = pad(diff % 60);
+                return `${hours}:${minutes}:${seconds}`;
+            }
+
+            function updateTimer(targetTime) {
+                clearInterval(intervalId);
+                const el = document.getElementById('timer');
+
+                function tick() {
+                    const msRemaining = targetTime - new Date();
+                    const diff = Math.floor(msRemaining / 1000);
+
+                    if (diff <= 0) {
+                        clearInterval(intervalId);
+                        el.textContent = '00:00:00';
+                        return;
+                    }
+                    el.textContent = formatDiff(diff);
+                }
+
+                tick(); // run immediately so we don’t wait 1 second
+                intervalId = setInterval(tick, 1000);
+            }
+
+            return {
+                start(input) {
+                    const target = parseTarget(input);
+                    if (!target) {
+                        console.error('Invalid countdown target:', input);
+                        return;
+                    }
+                    updateTimer(target);
+                },
+                stop() {
+                    clearInterval(intervalId);
+                }
+            };
+        })();
+
+        async function play() {
+            console.log('play()')
+        }
+
+        function stop() {
+            console.log('stop()')
+        }
+
+        function next() {
+            console.log('next()')
+        }
+
+        function update(raw) {
+            try {
+                const data = JSON.parse(raw);
+
+                //document.querySelector("#homeName").innerHTML = data.homeName ?? ""
+                //document.querySelector("#awayName").innerHTML = data.awayName ?? ""
+                //document.querySelector("#lounge").innerHTML = data.lounge ?? ""
+                //document.querySelector("#competition").innerHTML = data.competition ?? ""
+                document.body.classList.add(data.color);
+                countdown.start("2025-08-26T14:10:30");
+            } catch (err) {
+                console.error(err)
+            }
+
+        }
+
+        window.update = update;
+    </script>
+</head>
+
+<body class="bg-secondary text-primary">
+    <section class="relative w-screen h-screen overflow-hidden">
+
+        <img src="./images/dithering.jpg" alt=""
+            class="absolute object-cover mix-blend-overlay opacity-5 w-full h-full">
+
+        <div class="absolute w-full h-full blur-lg grid place-items-center opacity-30">
+            <img src="./images/cf/badge.svg" class="h-5/6">
+        </div>
+
+
+        <div class="absolute -left-[3%] w-1/3 h-[250vh] transform rotate-[30deg] -translate-y-1/2"></div>
+        <div class="absolute right-0 w-1/3 h-[250vh] transform rotate-[30deg] -translate-y-[5.75%]"></div>
+
+
+        <div class="absolute w-full h-full flex items-center justify-between px-12">
+            <img src={logo.home} alt="" class="w-[420px]">
+            <img src={logo.away} alt="" class="w-[420px]">
+        </div>
+
+        <div class="absolute w-full h-full grid place-items-center text-secondary-foreground">
+            <div></div>
+            <h1 class="flex-1 font-bold text-[7rem] uppercase mx-auto max-w-[66%] text-center">Začátek <br>přenosu</h1>
+            <h1 class="flex-1 font-medium text-[3.25rem] h-1/6 uppercase js-update text-center" id="timer">{round}</h1>
+
+        </div>
+
+
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Gotham";
+    src: url(images/gotham/Gotham-Book.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url(images/gotham/Gotham-Medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url(images/gotham/Gotham-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Gotham Equal";
+    src: url(images/gotham/GothamEqual-Regular.otf);
+    font-weight: 400;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+:root {
+    --primary: #757575;
+    --primary-foreground: #ffffff;
+
+    --secondary: #5d5d5d;
+    --secondary-foreground: #ffffff;
+}
+
+.modra {
+    --primary: #102d69;
+    --secondary: #0a214f;
+}
+
+.cervena {
+    --primary: #d51224;
+    --secondary: #9f0b19;
+}
+
+.seda {
+    --primary: #757575;
+    --secondary: #5d5d5d;
+}
+
+.bila {
+    --primary: #f0f0f0;
+    --primary-bg: #757575;
+}
+
+.zluta {
+    --primary: #f6cc00;
+    --secondary: #d4951b;
+    --primary-bg: #1e1e1c;
+}
+
+.ruzova {
+    --primary: #db2777;
+    --secondary: #9d174d;
+}
+
+.fialova {
+    --primary: #6d28d9;
+    --secondary: #4c1d95;
+}
+
+.zelena {
+    --primary: #16a34a;
+    --secondary: #166534;
+}
+
+.tyrkysova {
+    --primary: #22d3ee;
+    --secondary: #0e7490;
+}
+
+.cerna {
+    --primary: #09090b;
+    --secondary: #18181b;
+}
+
+@theme inline {
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --animate-marquee: marquee 20s linear infinite;
+
+    --font-sans: Gotham;
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+}
