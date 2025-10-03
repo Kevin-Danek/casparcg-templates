@@ -1,0 +1,20 @@
+{
+    "match": {
+        "lounge": "SH Česká Lípa",
+        "round": "3. kolo finále",
+        "referees": [
+            "Tadeáš Sidenberg",
+            "Michal Reczai"
+        ]
+    },
+    "home": {
+        "name": "Test 1",
+        "shortName": "Test",
+        "abbreviation": "TST"
+    },
+    "away": {
+        "name": "Test 1",
+        "shortName": "Test",
+        "abbreviation": "TST"
+    }
+}

@@ -39,6 +39,8 @@
 
     --secondary: #5d5d5d;
     --secondary-foreground: #ffffff;
+
+    --divider: oklch(70.7% 0.022 261.325);
 }
 
 .modra {
@@ -95,6 +97,7 @@
 @theme inline {
     --color-primary: var(--primary);
     --color-primary-foreground: var(--primary-foreground);
+    --color-divider: var(--divider);
 
     --color-secondary: var(--secondary);
     --color-secondary-foreground: var(--secondary-foreground);
@@ -102,6 +105,7 @@
     --animate-marquee: marquee 20s linear infinite;
 
     --font-sans: Gotham;
+    --font-mono: Gotham Equal;
 
     @keyframes marquee {
         0% {

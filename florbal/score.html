@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Overlay</title>
+    <script src="./assets/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/output.css" />
+
+    <script>
+        const animateIn = 0.3;
+        const animateOut = 0.3;
+
+        async function play() {
+            const timeline = new gsap.timeline();
+            timeline.fromTo("#upper", { y: '200%' }, { y: '0%', duration: 1 })
+
+            const response = await fetch("./data.json");
+            const data = await response.json();
+
+            const homeName = document.getElementById("homeName");
+            const awayName = document.getElementById("awayName");
+            const lounge = document.getElementById("lounge");
+            const round = document.getElementById("round");
+
+            homeName.textContent = data["home"]["name"];
+            awayName.textContent = data["away"]["name"];
+            lounge.textContent = data["match"]["lounge"];
+            round.textContent = data["match"]["round"];
+
+            timeline.timeScale(timeline.duration() / animateIn);
+        }
+
+        function stop() {
+            const timeline = new gsap.timeline();
+            timeline.fromTo("#upper", { y: '0%' }, { y: '200%', duration: 1 })
+            timeline.timeScale(timeline.duration() / animateOut);
+        }
+
+        function next() {
+            console.log('next()')
+        }
+
+        window.update = update;
+    </script>
+</head>
+
+<body class="w-screen h-screen overflow-hidden grid place-items-end p-16">
+    <section class="flex flex-col w-6xl mx-auto overflow-hidden relative">
+        <div id="upper">
+            <div class="flex w-full">
+                <div class="flex gap-4 flex-1 items-center bg-primary text-primary-foreground px-4">
+                    <div class="h-9 w-1.5 bg-green-600"></div>
+                    <h1 id="homeName" class="text-3xl font-bold uppercase"></h1>
+                </div>
+                <div class="aspect-square bg-gray-200 text-secondary font-mono w-16 grid items-center justify-center text-3xl">5 </div>
+                <div class="h-auto w-[2px] bg-divider"></div>
+                <div class="aspect-square bg-gray-200 text-secondary font-mono w-16 grid items-center justify-center text-3xl">13 </div>
+                <div class="flex gap-4 flex-1 items-center bg-primary text-primary-foreground px-4">
+                    <h1 id="awayName" class="ml-auto text-3xl font-bold uppercase"></h1>
+                    <div class="h-9 w-1.5 bg-green-600"></div>
+                </div>
+            </div>
+            <hr class="h-[2px] bg-divider">
+            <div class="bg-secondary text-secondary-foreground px-4 font-bold grid grid-cols-3">
+                <div id="lounge" class="text-left uppercase"></div>
+    
+                <div class="flex gap-1 items-center justify-center">
+                    <div class="flex flex-1">
+                        <div class="ml-auto">2nd</div>
+                    </div>
+                    <div class="h-4 w-[2px] bg-secondary-foreground"></div>
+                    <div class="flex flex-1">18:58</div>
+                </div>
+                <div id="round" class="text-right uppercase">SEMIFINÁLE PLAY-OFF</div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
