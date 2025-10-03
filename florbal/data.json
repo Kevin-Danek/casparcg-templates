@@ -8,13 +8,17 @@
         ]
     },
     "home": {
-        "name": "Test 1",
-        "shortName": "Test",
-        "abbreviation": "TST"
+        "name": "Předvýběr.cz Mladá Boleslav",
+        "shortName": "Boleslav",
+        "abbreviation": "MLB",
+        "color": "#16174D",
+        "logo": "./assets/images/logos/bolka.svg"
     },
     "away": {
-        "name": "Test 1",
-        "shortName": "Test",
-        "abbreviation": "TST"
+        "name": "1. SC NATIOS Vítkovice",
+        "shortName": "Vítkovice",
+        "abbreviation": "VIT",
+        "color": "#373334",
+        "logo": "./assets/images/logos/vitkovice.svg"
     }
 }
