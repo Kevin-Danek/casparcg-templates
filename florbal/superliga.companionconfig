@@ -1,0 +1,3731 @@
+{
+	"version": 7,
+	"type": "full",
+	"pages": {
+		"1": {
+			"name": "1\\n(Tabule)",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					},
+					"1": {
+						"type": "button",
+						"style": {
+							"text": "Preset 1",
+							"textExpression": false,
+							"size": "14",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"2": {
+						"type": "button",
+						"style": {
+							"text": "Preset 2",
+							"textExpression": false,
+							"size": "14",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"3": {
+						"type": "button",
+						"style": {
+							"text": "Preset 3",
+							"textExpression": false,
+							"size": "14",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"4": {
+						"type": "button",
+						"style": {
+							"text": "Preset 4",
+							"textExpression": false,
+							"size": "14",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"2": {
+			"name": "2\\n(Grafika)",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					},
+					"1": {
+						"type": "button",
+						"style": {
+							"text": "TIME",
+							"textExpression": false,
+							"size": "24",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "IeUILBgYMZJcB2fPgsvf9",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "ZN4h-KL0XPTWp9BawTaXA",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"template_dd": "FLORBAL/TIME",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": false,
+												"variables": "f0=\"John Doe\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "-Dgy4SN0aohiCRTjMCJ8n",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"2": {
+						"type": "button",
+						"style": {
+							"text": "LATEST GOAL",
+							"textExpression": false,
+							"size": "14",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "4J_HwC-V4LjvBDj0xWn04",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "y6iqWV4iNGWAsWpP7zd9U",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"template_dd": "FLORBAL/TIME",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": false,
+												"variables": "f0=\"John Doe\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "9rwpPeuJR6gHNT9_YQse0",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"3": {
+						"type": "button",
+						"style": {
+							"text": "LATEST PENALTY",
+							"textExpression": false,
+							"size": "14",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "d6MvwTCy5Lx5WWzDr_frZ",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "fnfOott5-8l30B3XhvnBG",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"template_dd": "FLORBAL/TIME",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": false,
+												"variables": "f0=\"John Doe\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "vldRgKUHYrUMKoKIO3HVT",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"4": {
+						"type": "button",
+						"style": {
+							"text": "VAR",
+							"textExpression": false,
+							"size": "24",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "M-ThOjrCloeJGJAl_d1Iv",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "CRDQOJ_Tob7SCx2GHwR7K",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"template_dd": "FLORBAL/TIME",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": false,
+												"variables": "f0=\"John Doe\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "QuwykE8DS_A7kyvNsYI9o",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					},
+					"1": {
+						"type": "button",
+						"style": {
+							"text": "LOWER SCORE",
+							"textExpression": false,
+							"size": "auto",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "AvfCLpC4VXkcY3UCwouS-",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "09lCwYgCEsAcJ52vF-b__",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "21",
+												"template_dd": "FLORBAL/SCORE",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": false,
+												"variables": "f0=\"John Doe\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "PwqtprU6vB2TwY2yfj5IW",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "21",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"2": {
+						"type": "button",
+						"style": {
+							"text": "BREAK SCORE",
+							"textExpression": false,
+							"size": "auto",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "qoF_PFr0nIpsfLLFWHoaV",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "aPOu_EGbUR8HehziXgNPF",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "21",
+												"template_dd": "FLORBAL/SCORE",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": false,
+												"variables": "f0=\"John Doe\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "1sDNMn9KruS0dQFXhJDA7",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "21",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"4": {
+						"type": "button",
+						"style": {
+							"text": "SPONSOR CAROUSEL",
+							"textExpression": false,
+							"size": "auto",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "yPmR7UJL82BnR7bnZTG2h",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "4pYQjBSMfpRZpnKTWRlNy",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "29",
+												"template_dd": "FLORBAL/SPONSORS-CAROUSEL",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": false,
+												"variables": "f0=\"John Doe\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "42zpwu2B8xxPt0hXvVEjM",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "29",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					},
+					"1": {
+						"type": "button",
+						"style": {
+							"text": "ROSTER HOSTÉ",
+							"textExpression": false,
+							"size": "14",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "qWWDtDJiJMJHeSs4QVctR",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "vMJdpq7iX1U0r1vt-Yk1Q",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"template_dd": "FLORBAL/ROSTER",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": true,
+												"variables": "team=\"away\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "8T_49rwrrMv8ke_fZKogk",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"2": {
+						"type": "button",
+						"style": {
+							"text": "ROSTER DOMÁCÍ",
+							"textExpression": false,
+							"size": "14",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "YRRT3NGL2bbPuOmmKlfhC",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "q87AN302x0GDNqPj4VW2Q",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"template_dd": "FLORBAL/ROSTER",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": true,
+												"variables": "team=\"home\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "1sBKQsj-CZa_kig5nk0z-",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"3": {
+						"type": "button",
+						"style": {
+							"text": "LINEUP HOSTÉ",
+							"textExpression": false,
+							"size": "14",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "jwICsRGtAbviN5G9Su4kS",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "zrL0CghSohTggVPc-VSyx",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"template_dd": "FLORBAL/ROSTER",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": true,
+												"variables": "team=\"away\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "mq5uszgEM__zhoB78eaut",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					},
+					"4": {
+						"type": "button",
+						"style": {
+							"text": "LINEUP DOMÁCÍ",
+							"textExpression": false,
+							"size": "14",
+							"png64": null,
+							"alignment": "center:center",
+							"pngalignment": "center:center",
+							"color": 16777215,
+							"bgcolor": 0,
+							"show_topbar": "default"
+						},
+						"options": {
+							"rotaryActions": false,
+							"stepAutoProgress": true
+						},
+						"feedbacks": [
+							{
+								"id": "_UYRK5FYdV4A9nMrzdsA3",
+								"definitionId": "bank_current_step",
+								"connectionId": "internal",
+								"options": {
+									"location_target": "this",
+									"location_text": "$(this:page)/$(this:row)/$(this:column)",
+									"location_expression": "concat($(this:page), '/', $(this:row), '/', $(this:column))",
+									"step": 1
+								},
+								"type": "feedback",
+								"style": {
+									"color": 0,
+									"bgcolor": 65280
+								},
+								"isInverted": true,
+								"children": {}
+							}
+						],
+						"steps": {
+							"0": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "C53lYnPr767yUKRwOtdIH",
+											"definitionId": "CG ADD",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"template_dd": "FLORBAL/ROSTER",
+												"template": "",
+												"playonload": "true",
+												"templatelayer": "1",
+												"json": true,
+												"variables": "team=\"home\""
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							},
+							"1": {
+								"action_sets": {
+									"down": [
+										{
+											"id": "xH9KfAwEIZg6USyUetOX4",
+											"definitionId": "CG STOP",
+											"connectionId": "e_ZjWOwKvIA062aD9ACe8",
+											"options": {
+												"channel": 1,
+												"layer": "20",
+												"templatelayer": "1"
+											},
+											"type": "action"
+										}
+									],
+									"up": []
+								},
+								"options": {
+									"runWhileHeld": []
+								}
+							}
+						}
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"3": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"4": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"5": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"6": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"7": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"8": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"9": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"10": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"11": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"12": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"13": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"14": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"15": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"16": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"17": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"18": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"19": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"20": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"21": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"22": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"23": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"24": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"25": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"26": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"27": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"28": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"29": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"30": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"31": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"32": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"33": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"34": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"35": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"36": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"37": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"38": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"39": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"40": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"41": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"42": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"43": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"44": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"45": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"46": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"47": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"48": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"49": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"50": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"51": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"52": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"53": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"54": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"55": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"56": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"57": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"58": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"59": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"60": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"61": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"62": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"63": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"64": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"65": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"66": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"67": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"68": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"69": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"70": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"71": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"72": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"73": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"74": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"75": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"76": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"77": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"78": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"79": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"80": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"81": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"82": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"83": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"84": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"85": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"86": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"87": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"88": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"89": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"90": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"91": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"92": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"93": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"94": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"95": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"96": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"97": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"98": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				},
+				"1": {
+					"0": {
+						"type": "pagenum"
+					}
+				},
+				"2": {
+					"0": {
+						"type": "pagedown"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		},
+		"99": {
+			"name": "PAGE",
+			"controls": {
+				"0": {
+					"0": {
+						"type": "pageup"
+					}
+				}
+			},
+			"gridSize": {
+				"minRow": 0,
+				"maxRow": 3,
+				"minColumn": 0,
+				"maxColumn": 8
+			}
+		}
+	},
+	"triggers": {},
+	"custom_variables": {},
+	"instances": {
+		"e_ZjWOwKvIA062aD9ACe8": {
+			"instance_type": "casparcg-server",
+			"moduleVersionId": "2.1.1",
+			"updatePolicy": "stable",
+			"sortOrder": 1,
+			"label": "caspar",
+			"isFirstInit": false,
+			"config": {
+				"host": "127.0.0.1",
+				"port": 5250
+			},
+			"lastUpgradeIndex": -1,
+			"enabled": true
+		}
+	},
+	"surfaces": {
+		"streamdeck:DL08M2A32598": {
+			"groupConfig": {
+				"name": "Auto group",
+				"last_page_id": "jNfRzLUPhqQdMLxjjACx3",
+				"startup_page_id": "SaZ8XsP5hvUizeuew2HVH",
+				"use_last_page": true,
+				"page": 1
+			},
+			"type": "Elgato Stream Deck MK.2",
+			"integrationType": "elgato-streamdeck",
+			"config": {
+				"brightness": 100,
+				"rotation": 0,
+				"never_lock": false,
+				"xOffset": 0,
+				"yOffset": 0
+			},
+			"gridSize": {
+				"columns": 5,
+				"rows": 3
+			}
+		},
+		"plugin": {
+			"type": "Elgato Streamdeck Plugin",
+			"integrationType": "elgato-plugin",
+			"config": {
+				"brightness": 100,
+				"rotation": 0,
+				"use_last_page": true,
+				"never_lock": false,
+				"page": 1,
+				"xOffset": 0,
+				"yOffset": 0
+			}
+		},
+		"emulator:S7O_9i0tEJ3SW2ziWqh-R": {
+			"groupConfig": {
+				"name": "Auto group",
+				"last_page_id": "jNfRzLUPhqQdMLxjjACx3",
+				"startup_page_id": "SaZ8XsP5hvUizeuew2HVH",
+				"use_last_page": true,
+				"page": 1
+			},
+			"config": {
+				"brightness": 100,
+				"rotation": 0,
+				"never_lock": false,
+				"xOffset": 1,
+				"yOffset": 0,
+				"groupId": null,
+				"emulator_control_enable": false,
+				"emulator_prompt_fullscreen": false,
+				"emulator_columns": 8,
+				"emulator_rows": 4
+			},
+			"type": "Emulator",
+			"integrationType": "emulator",
+			"gridSize": {
+				"columns": 8,
+				"rows": 4
+			},
+			"name": "Klávesnice"
+		}
+	},
+	"surfaceGroups": {}
+}

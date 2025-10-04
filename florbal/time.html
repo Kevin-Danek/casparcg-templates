@@ -12,24 +12,28 @@
         const animateIn = 0.3;
         const animateOut = 0.3;
 
-        async function play() {
-            const timeline = new gsap.timeline();
-            timeline.fromTo("#upper", { y: '200%' }, { y: '0%', duration: 1 })
-
+        async function prepare() {
             const response = await fetch("./data.json");
             const data = await response.json();
 
+            document.documentElement.classList.add(data.match.theme);
             document.getElementById("name-home").textContent = data.home.abbreviation;
             document.getElementById("name-away").textContent = data.away.abbreviation;
             document.getElementById("color-home").style = `background: ${data.home.color}`;
-            document.getElementById("color-away").style = `background: ${data.away.color}`;            
+            document.getElementById("color-away").style = `background: ${data.away.color}`;
+        }
 
+        async function play() {
+            await prepare();
+            gsap.set("#time", { y: "-200%" });
+            const timeline = new gsap.timeline();
+            timeline.fromTo("#time", { y: '-200%' }, { y: '0%', duration: 1 })
             timeline.timeScale(timeline.duration() / animateIn);
         }
 
         function stop() {
             const timeline = new gsap.timeline();
-            timeline.fromTo("#upper", { y: '0%' }, { y: '200%', duration: 1 })
+            timeline.fromTo("#time", { y: '0%' }, { y: '-200%', duration: 1 })
             timeline.timeScale(timeline.duration() / animateOut);
         }
 
@@ -37,40 +41,48 @@
             console.log('next()')
         }
 
+        function update() {
+            prepare();
+        }
+
         window.update = update;
+        prepare();
     </script>
 </head>
 
 <body class="w-screen h-screen overflow-hidden p-16">
-    <section class="flex flex-col transition duration-200 w-72 absolute">
-        <div class="px-4 text-sm relative flex items-center justify-center text-white bg-secondary h-[30px] w-full">
-            <span class="bg-primary-foreground absolute" style="width: 2px; height: 16pt"></span>
-            <div class="grid grid-cols-2 place-items-center gap-4 text-primary-foreground">
-                <span class="font-mono text-lg font-medium ml-auto">{period}</span>
-                <span class="font-mono text-lg mr-auto">00:00</span>
-            </div>
-            <span></span>
-        </div>
-
-        <div class="bg-divider h-[2px]"></div>
-
-        <div class="grid grid-cols-2 gap-x-0.5 bg-divider h-12" style="font-size:8px">
-            <div class="flex w-full bg-primary">
-                <div class="flex gap-2 flex-1 items-center bg-primary text-primary-foreground px-3">
-                    <div id="color-home" class="h-6 w-1.5 "></div>
-                    <h1 id="name-home" class="text-2xl font-bold uppercase tracking-tighter leading-tight">FAB</h1>
+    <section class="flex flex-col transition duration-200 w-72 absolute overflow-hidden">
+        <div id="time" style="transform: translateY(-200%);">
+            <div class="px-4 text-sm relative flex items-center justify-center text-white bg-secondary h-[30px] w-full">
+                <span class="bg-primary-foreground absolute" style="width: 2px; height: 16pt"></span>
+                <div class="grid grid-cols-2 place-items-center gap-4 text-primary-foreground">
+                    <span class="font-mono text-lg font-medium ml-auto">{period}</span>
+                    <span class="font-mono text-lg mr-auto">00:00</span>
                 </div>
-                <div
-                    class="aspect-square bg-gray-200 text-secondary w-12 grid items-center justify-center text-3xl font-bold tracking-tighter">
-                    5 </div>
+                <span></span>
             </div>
-            <div class="flex w-full bg-primary">
-                <div
-                    class="aspect-square bg-gray-200 text-secondary w-12 grid items-center justify-center text-3xl font-bold tracking-tighter">
-                    13 </div>
-                <div class="flex gap-2 flex-1 items-center bg-primary text-primary-foreground px-3">
-                    <h1 id="name-away" class="ml-auto text-2xl font-bold uppercase tracking-tighter leading-tight">FAB</h1>
-                    <div id="color-away"class="h-6 w-1.5"></div>
+
+            <div class="bg-divider h-[2px]"></div>
+
+            <div class="grid grid-cols-2 gap-x-0.5 bg-divider h-12" style="font-size:8px">
+                <div class="flex w-full bg-primary">
+                    <div class="flex gap-2 flex-1 items-center bg-primary text-primary-foreground px-3">
+                        <div id="color-home" class="h-6 w-1.5 "></div>
+                        <h1 id="name-home" class="text-2xl font-bold uppercase tracking-tighter leading-tight">FAB</h1>
+                    </div>
+                    <div
+                        class="aspect-square bg-gray-200 text-secondary w-12 grid items-center justify-center text-3xl font-bold tracking-tighter">
+                        5 </div>
+                </div>
+                <div class="flex w-full bg-primary">
+                    <div
+                        class="aspect-square bg-gray-200 text-secondary w-12 grid items-center justify-center text-3xl font-bold tracking-tighter">
+                        13 </div>
+                    <div class="flex gap-2 flex-1 items-center bg-primary text-primary-foreground px-3">
+                        <h1 id="name-away" class="ml-auto text-2xl font-bold uppercase tracking-tighter leading-tight">
+                            FAB</h1>
+                        <div id="color-away" class="h-6 w-1.5"></div>
+                    </div>
                 </div>
             </div>
         </div>

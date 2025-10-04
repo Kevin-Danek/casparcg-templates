@@ -2,6 +2,7 @@
     "match": {
         "lounge": "SH Česká Lípa",
         "round": "3. kolo finále",
+        "theme": "modra",
         "referees": [
             "Tadeáš Sidenberg",
             "Michal Reczai"
@@ -12,13 +13,394 @@
         "shortName": "Boleslav",
         "abbreviation": "MLB",
         "color": "#16174D",
-        "logo": "./assets/images/logos/bolka.svg"
+        "logo": "./assets/images/logos/bolka.svg",
+        "roster": [
+            {
+                "formation": "Brankáři",
+                "players": [      
+                    {
+                        "personalId": "1609131271",
+                        "jerseyNumber": 42,
+                        "name": "Radek Dvořák",
+                        "post": "Nastupující",
+                        "year": "2007",
+                        "photo": "/imgmin/data/fis/document/players_1609131271_photo-1430462181.jpeg/w164h164ft1692437450.png"
+                    },
+                    
+                    {
+                        "personalId": "2010070601",
+                        "jerseyNumber": 95,
+                        "name": "Martin Mrázek",
+                        "post": "Náhradní",
+                        "year": "2008",
+                        "photo": null
+                    }
+                ]
+            },
+            {
+                "formation": "1. formace",
+                "players": [
+                    {
+                        "personalId": "1511100431",
+                        "jerseyNumber": 3,
+                        "name": "Ondřej Martinec",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1611090081",
+                        "jerseyNumber": 21,
+                        "name": "Adam Doňar",
+                        "post": "Obránce",
+                        "year": "2008",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1609131241",
+                        "jerseyNumber": 44,
+                        "name": "Adam Filip Hrdlička",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": "/imgmin/data/fis/document/players_1609131241_photo-1048415413.jpeg/w164h164ft1739455966.png"
+                    },
+                    {
+                        "personalId": "1410090611",
+                        "jerseyNumber": 72,
+                        "name": "Petr Špaček",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": "/imgmin/data/fis/document/players_1410090611_photo-2065529516.jpeg/w164h164ft1739281936.png"
+                    },
+                    {
+                        "personalId": "1806010041",
+                        "jerseyNumber": 89,
+                        "name": "Lukáš Šindelář",
+                        "post": "Obránce",
+                        "year": "2007",
+                        "photo": "/imgmin/data/fis/document/players_1806010041_photo-1559936022.jpeg/w164h164ft1651679441.png"
+                    }
+                ]
+            },
+            {
+                "formation": "2. formace",
+                "players": [
+                    {
+                        "personalId": "1609130911",
+                        "jerseyNumber": 32,
+                        "name": "Jakub Vokál",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": "/imgmin/data/fis/document/players_1609130911_photo-3452235877.jpeg/w164h164ft1664168914.png"
+                    },
+                    {
+                        "personalId": "1802060041",
+                        "jerseyNumber": 30,
+                        "name": "Radim Piškula",
+                        "post": "Útočník",
+                        "year": "2008",
+                        "photo": "/imgmin/data/fis/document/players_1802060041_photo-3966517836.jpeg/w164h164ft1651679438.png"
+                    },
+                    {
+                        "personalId": "1609261271",
+                        "jerseyNumber": 20,
+                        "name": "Jan Fousek",
+                        "post": "Útočník",
+                        "year": "2008",
+                        "photo": "/imgmin/data/fis/document/players_1609261271_photo-2417327761.jpeg/w164h164ft1741448164.png"
+                    },
+                    {
+                        "personalId": "1410270251",
+                        "jerseyNumber": 87,
+                        "name": "Kristián Semelka",
+                        "post": "Obránce",
+                        "year": "2008",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1511260011",
+                        "jerseyNumber": 27,
+                        "name": "Viktor Steinz",
+                        "post": "Obránce",
+                        "year": "2007",
+                        "photo": null
+                    }
+                ]
+            },
+            {
+                "formation": "3. formace",
+                "players": [
+                    {
+                        "personalId": "2201140041",
+                        "jerseyNumber": 14,
+                        "name": "Jáchym Hocko",
+                        "post": "Útočník",
+                        "year": "2009",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1609292401",
+                        "jerseyNumber": 39,
+                        "name": "Jan Racek",
+                        "post": "Útočník",
+                        "year": "2008",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1304300031",
+                        "jerseyNumber": 88,
+                        "name": "Radek Matouš",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": "/imgmin/data/fis/document/players_1304300031_photo-338366789.jpeg/w164h164ft1651679294.png"
+                    },
+                    {
+                        "personalId": "1811060051",
+                        "jerseyNumber": 13,
+                        "name": "Dominik Štěrba",
+                        "post": "Obránce",
+                        "year": "2010",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1609080481",
+                        "jerseyNumber": 90,
+                        "name": "Sebastian Vincent Galia",
+                        "post": "Obránce",
+                        "year": "2007",
+                        "photo": null
+                    }
+                ]
+            },
+            {
+                "formation": null,
+                "players": [
+                    {
+                        "personalId": "1609080501",
+                        "jerseyNumber": 6,
+                        "name": "Tomáš Roneš",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": null
+                    }
+                ]
+            },
+            {
+                "formation": "Realizační tým",
+                "players": [
+                    {
+                        "personalId": "1609080501",
+                        "jerseyNumber": 1,
+                        "name": "Jakub Bína",
+                        "post": "Trenér",
+                        "year": "2007",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1609080501",
+                        "jerseyNumber": 2,
+                        "name": "Michaela Špulková",
+                        "post": "Asistent Trenéra",
+                        "year": "2007",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1609080501",
+                        "jerseyNumber": 3,
+                        "name": "Jan Hrdlička",
+                        "post": "Asistent Trenéra",
+                        "year": "2007",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1609080501",
+                        "jerseyNumber": 4,
+                        "name": "Šimon Záruba",
+                        "post": "Kustod",
+                        "year": "2007",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1609080501",
+                        "jerseyNumber": 5,
+                        "name": "Štěpán Motejzík",
+                        "post": "Asistent Trenéra",
+                        "year": "2007",
+                        "photo": null
+                    }
+                ]
+            }
+        ]
     },
     "away": {
         "name": "1. SC NATIOS Vítkovice",
         "shortName": "Vítkovice",
         "abbreviation": "VIT",
         "color": "#373334",
-        "logo": "./assets/images/logos/vitkovice.svg"
+        "logo": "./assets/images/logos/vitkovice.svg",
+        "roster": [
+            {
+                "formation": "1. formace",
+                "players": [
+                    {
+                        "personalId": "1809271481",
+                        "jerseyNumber": 16,
+                        "name": "Šimon Frontz",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1212170031",
+                        "jerseyNumber": 57,
+                        "name": "Daniel Vik",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": "/imgmin/data/fis/document/players_1212170031_photo-505781006.jpeg/w164h164ft1701631797.png"
+                    },
+                    {
+                        "personalId": "1510160981",
+                        "jerseyNumber": 11,
+                        "name": "Jakub Dušek",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1611010271",
+                        "jerseyNumber": 44,
+                        "name": "Tomáš Radosta",
+                        "post": "Obránce",
+                        "year": "2009",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1209190971",
+                        "jerseyNumber": 92,
+                        "name": "Tobiáš Stýblo",
+                        "post": "Obránce",
+                        "year": "2007",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1804270081",
+                        "jerseyNumber": 75,
+                        "name": "Werner Hartig",
+                        "post": "G",
+                        "year": "2007",
+                        "photo": null
+                    }
+                ]
+            },
+            {
+                "formation": null,
+                "players": [
+                    {
+                        "personalId": "1609140721",
+                        "jerseyNumber": 8,
+                        "name": "Jakub Hruška",
+                        "post": "Útočník",
+                        "year": "2008",
+                        "photo": "/imgmin/data/fis/document/players_1609140721_photo-153274990.jpeg/w164h164ft1740308098.png"
+                    },
+                    {
+                        "personalId": "1609302111",
+                        "jerseyNumber": 12,
+                        "name": "Michal Blažek",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": "/imgmin/data/fis/document/players_1609302111_photo-653424952.jpeg/w164h164ft1710421844.png"
+                    },
+                    {
+                        "personalId": "1709250691",
+                        "jerseyNumber": 13,
+                        "name": "Kristián Ctirad Šroll",
+                        "post": "Útočník",
+                        "year": "2008",
+                        "photo": "/imgmin/data/fis/document/players_1709250691_photo-2145724608.jpeg/w164h164ft1730098272.png"
+                    },
+                    {
+                        "personalId": "1311280111",
+                        "jerseyNumber": 25,
+                        "name": "Matyáš Matušů",
+                        "post": "Útočník",
+                        "year": "2008",
+                        "photo": "/imgmin/data/fis/document/players_1311280111_photo-3304858116.jpeg/w164h164ft1651679311.png"
+                    },
+                    {
+                        "personalId": "1410220441",
+                        "jerseyNumber": 29,
+                        "name": "Jakub Cejnar",
+                        "post": "Útočník",
+                        "year": "2008",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1809271491",
+                        "jerseyNumber": 32,
+                        "name": "Jáchym Frontz",
+                        "post": "Obránce",
+                        "year": "2009",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1503240131",
+                        "jerseyNumber": 40,
+                        "name": "Jakub Kopecký",
+                        "post": "Obránce",
+                        "year": "2007",
+                        "photo": "/imgmin/data/fis/document/players_1503240131_photo-2215470078.jpeg/w164h164ft1670696653.png"
+                    },
+                    {
+                        "personalId": "1411180441",
+                        "jerseyNumber": 42,
+                        "name": "Jakub Smutný",
+                        "post": "Obránce",
+                        "year": "2007",
+                        "photo": "/imgmin/data/fis/document/players_1411180441_photo-2026597782.jpeg/w164h164ft1700491637.png"
+                    },
+                    {
+                        "personalId": "1509251381",
+                        "jerseyNumber": 53,
+                        "name": "Michal Doskočil",
+                        "post": "Útočník",
+                        "year": "2008",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "1610100431",
+                        "jerseyNumber": 81,
+                        "name": "Jan Kolář",
+                        "post": "Útočník",
+                        "year": "2008",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "2309060061",
+                        "jerseyNumber": 85,
+                        "name": "Maxmilián Lank",
+                        "post": "G",
+                        "year": "2008",
+                        "photo": "/imgmin/data/fis/document/players_2309060061_photo-2390642829.jpeg/w164h164ft1737881174.png"
+                    },
+                    {
+                        "personalId": "1510150961",
+                        "jerseyNumber": 89,
+                        "name": "Patrik Prokop",
+                        "post": "Útočník",
+                        "year": "2008",
+                        "photo": null
+                    },
+                    {
+                        "personalId": "2109090371",
+                        "jerseyNumber": 96,
+                        "name": "Filip Šťastný",
+                        "post": "Útočník",
+                        "year": "2007",
+                        "photo": null
+                    }
+                ]
+            }
+        ]
     }
 }
