@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Overlay</title>
+    <script src="./assets/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/output.css" />
+
+    <script>
+        const animateIn = 0.3;
+        const animateOut = 0.3;
+
+        async function prepare() {
+            const response = await fetch("./data.json");
+            const data = await response.json();
+
+            document.documentElement.classList.add(data.match.theme);
+            document.getElementById("name-home").textContent = data.home.abbreviation;
+            document.getElementById("name-away").textContent = data.away.abbreviation;
+            document.getElementById("color-home").style = `background: ${data.home.color}`;
+            document.getElementById("color-away").style = `background: ${data.away.color}`;
+        }
+
+        async function play() {
+            await prepare();
+            gsap.set("#time", { y: "-200%" });
+            const timeline = new gsap.timeline();
+            timeline.fromTo("#time", { y: '-200%' }, { y: '0%', duration: 1 })
+            timeline.timeScale(timeline.duration() / animateIn);
+        }
+
+        function stop() {
+            const timeline = new gsap.timeline();
+            timeline.fromTo("#time", { y: '0%' }, { y: '-200%', duration: 1 })
+            timeline.timeScale(timeline.duration() / animateOut);
+        }
+
+        function next() {
+            console.log('next()')
+        }
+
+        function update() {
+            prepare();
+        }
+
+        window.update = update;
+        prepare();
+    </script>
+</head>
+
+<body class="w-screen h-screen overflow-hidden flex flex-col justify-end p-16 relative">
+    <section class="flex flex-col transition duration-200 w-96 overflow-hidden">
+        <div class="flex">
+            <div
+                class="aspect-square bg-gray-200 text-secondary w-16 grid items-center justify-center text-3xl font-bold tracking-tighter">
+                <svg class="w-12 h-12 text-primary fill-primary" viewBox="0 0 400 362" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M229.549 1.27599C233.596 2.98099 233.734 3.86099 233.734 28.084V50.602L231.816 52.52C228.161 56.175 221.264 54.425 220.035 49.53C218.705 44.229 220.062 4.47799 221.627 2.91399C223.483 1.05999 227.207 0.289992 229.549 1.27599ZM303.024 27.853C305.678 28.968 307.434 32.207 306.96 35.117C306.215 39.697 265.786 106.071 263.043 107.217C258.219 109.233 253.265 106.092 253.265 101.019C253.265 98.654 292.975 31.037 295.684 28.788C297.243 27.494 301.023 27.013 303.024 27.853ZM155.999 27.832C159.745 29.366 200.14 96.538 200.14 101.234C200.14 106.867 193.277 110.078 189.174 106.365C187.068 104.459 147.306 38.29 146.617 35.544C145.332 30.425 150.983 25.779 155.999 27.832ZM229.633 68.139C233.476 69.754 233.734 70.996 233.734 87.875C233.734 102.204 233.611 103.602 232.189 105.41C229.275 109.114 222.97 108.55 220.819 104.392C218.337 99.591 219.564 68.5 222.236 68.5C222.335 68.5 223.496 68.19 224.817 67.811C226.45 67.343 227.99 67.448 229.633 68.139ZM400.14 174.359V227.875H320.2H240.259L240.232 239.789C239.987 347.663 111.709 401.963 35.4894 326.456C-22.1146 269.391 -7.51062 171.787 64.1964 134.596C89.0534 121.705 94.9574 120.876 162.054 120.858L214.202 120.844V130.609V140.375H227.093H239.984V130.609V120.844H320.062H400.14V174.359ZM254.046 144.672V154.438H227.093H200.14V144.633V134.828L152.679 135.116C100.772 135.431 101.944 135.337 86.7324 140.393C-3.14761 170.271 -11.2076 295.529 74.1124 336.517C151.587 373.737 237.641 309.256 224.744 223.646C224.102 219.387 223.578 215.432 223.577 214.857C223.577 213.992 237.525 213.813 304.827 213.813H386.077V174.359V134.906H320.062H254.046V144.672ZM117.327 160.637C117.327 168.719 118.048 168.069 108.249 168.837C73.3234 171.576 40.7654 206.262 40.7654 240.733V245.063H33.7344H26.7024V240.071C26.7024 198.679 64.7204 157.971 106.329 154.81C109.585 154.562 113.392 154.186 114.788 153.973L117.327 153.585V160.637ZM373.577 187.641V201.313H339.984H306.39V194.281V187.25H332.952H359.515V180.609V173.969H366.546H373.577V187.641ZM293.89 194.281V201.313H286.859H279.827V194.281V187.25H286.859H293.89V194.281ZM132.171 195.538C167.503 205.023 178.927 248.419 152.938 274.428C125.62 301.768 77.9714 285.15 73.5924 246.755C69.8264 213.733 100.394 187.006 132.171 195.538ZM110.637 209.653C81.8204 219.473 79.3604 257.57 106.689 270.799C125.611 279.96 149.121 267.126 152.444 245.822C156.069 222.581 132.511 202.2 110.637 209.653ZM44.2134 264.275C46.9774 273.927 53.6914 286.009 60.2364 293.109C65.8114 299.156 65.7854 298.504 60.6464 303.698C55.1074 309.295 55.7404 309.252 51.1484 304.345C41.0074 293.51 26.3334 265.484 29.2654 262.552C29.7184 262.099 40.6344 259.161 41.9474 259.138C42.3824 259.131 43.4014 261.442 44.2134 264.275Z"
+                        fill="inherit" />
+                </svg>
+            </div>
+            <div id="referees" class="w-full">
+                <div
+                    class="px-3 text-xl relative flex items-center text-primary-foreground bg-primary font-bold uppercase h-8 w-full">
+                    <span>Přemysl Bališ</span>
+                </div>
+                <div class="bg-divider h-[2px]"></div>
+                <div
+                    class="px-3 text-xl relative flex items-center text-primary-foreground bg-primary font-bold uppercase h-8 w-full">
+                    <span>Peter Varga</span>
+                </div>
+                <div class="bg-divider h-[2px]"></div>
+                <div
+                    class="px-3 text-sm relative flex items-center text-secondary-foreground bg-secondary font-bold uppercase h-[30px] w-full">
+                    <span>Rozhodčí utkání</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>
