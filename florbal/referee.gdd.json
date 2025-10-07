@@ -1,0 +1,15 @@
+{
+    "$schema": "https://superflytv.github.io/GraphicsDataDefinition/gdd-meta-schema/v1/schema.json",
+    "title": "Scoreboard",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "title": "Name",
+            "gddType": "single-line",
+            "gddOptions": {
+                "placeholder": "Lukáš Laštovička"
+            }
+        }
+    }
+}
