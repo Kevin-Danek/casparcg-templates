@@ -1,0 +1,31 @@
+{
+    "$schema": "https://superflytv.github.io/GraphicsDataDefinition/gdd-meta-schema/v1/schema.json",
+    "title": "Scoreboard",
+    "type": "object",
+    "properties": {
+        "goal": {
+            "type": "string",
+            "title": "Goal",
+            "gddType": "single-line",
+            "gddOptions": {
+                "placeholder": "Lukáš Laštovička"
+            }
+        },
+        "assist": {
+            "type": "string",
+            "title": "Assist",
+            "gddType": "single-line",
+            "gddOptions": {
+                "placeholder": "Lukáš Laštovička"
+            }
+        },
+        "logo": {
+            "type": "string",
+            "title": "Assist",
+            "gddType": "single-line",
+            "gddOptions": {
+                "placeholder": "https://..."
+            }
+        }
+    }
+}

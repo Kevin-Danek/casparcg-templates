@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Overlay</title>
+    <script src="./assets/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/output.css" />
+    <script name="graphics-data-definition" type="application/json+gdd" src="goal.gdd.json"></script>
+
+    <script>
+        const animateIn = 0.3;
+        const animateOut = 0.3;
+
+        async function play(data) {
+            const timeline = new gsap.timeline();
+            timeline.fromTo("#referee", { y: '200%' }, { y: '0%', duration: 0.3, ease: "power2.out" });
+        }
+
+        function stop() {
+            const timeline = new gsap.timeline();
+            timeline.fromTo("#referee", { y: '0%' }, { y: '200%', duration: 0.3, ease: "power2.out" });
+        }
+
+        function next() {
+            console.log('next()')
+        }
+
+        function update(raw) {
+            try {
+                const data = JSON.parse(raw);
+                
+                if (data.goal) document.getElementById("goal").textContent = data.goal;
+                if (data.assist) document.getElementById("assist").textContent = data.assist;
+                if (data.logo) {
+                    document.getElementById("logo").setAttribute("src", data.logo);
+                } else {
+                    document.getElementById("logo").setAttribute("src", "https://www.ceskyflorbal.cz/front/img/logos/cesky_florbal-symbol.svg");
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        window.update = update;
+    </script>
+</head>
+
+<body class="w-screen h-screen overflow-hidden flex flex-col justify-end p-16 relative">
+    <section class="flex flex-col transition duration-200 w-96 overflow-hidden">
+        <div class="flex" id="referee" style="transform: translateY(200%)">
+            <div class="bg-gray-200 w-[calc(var(--spacing) * 20)] h-[calc(var(--spacing) * 20)] aspect-square p-2 grid place-items-center">
+                <img id="logo" src="" alt="" class="w-16 h-16 aspect-square object-contain">
+            </div>
+
+            <div class="w-full">
+                <div
+                    id="goal"
+                    class="px-3 text-2xl relative flex items-center text-primary-foreground bg-primary font-bold uppercase h-12 w-full">
+                    {name}
+                </div>
+                <div class="bg-divider h-[2px]"></div>
+                <div
+                    id="assist"
+                    class="px-3 text-sm relative flex items-center text-secondary-foreground bg-secondary font-bold uppercase h-8 w-full">
+                    <span>Bez asistence</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>
