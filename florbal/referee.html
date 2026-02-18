@@ -13,7 +13,7 @@
         const animateIn = 0.3;
         const animateOut = 0.3;
 
-        async function play(data) {
+        function play(data) {
             const timeline = new gsap.timeline();
             timeline.fromTo("#referee", { y: '200%' }, { y: '0%', duration: 0.3, ease: "power2.out" });
         }
@@ -31,9 +31,10 @@
             console.log("input:", raw)
             try {
                 const data = JSON.parse(raw);
-                console.log(data);
-                if (data.name) {
-                    document.getElementById("name").textContent = data.name;
+                if (data.theme) document.documentElement.classList.add(data.theme);
+                if (data.referees) {
+                    document.getElementById("ref1").textContent = data.referees[0];
+                    document.getElementById("ref2").textContent = data.referees[1];
                 }
             } catch (err) {
                 console.log(err);
@@ -57,7 +58,13 @@
             </div>
             <div class="w-full">
                 <div
-                    id="name"
+                    id="ref1"
+                    class="px-3 text-2xl relative flex items-center text-primary-foreground bg-primary font-bold uppercase h-10 w-full">
+                    {name}
+                </div>
+                <div class="bg-divider h-[2px]"></div>
+                <div
+                    id="ref2"
                     class="px-3 text-2xl relative flex items-center text-primary-foreground bg-primary font-bold uppercase h-10 w-full">
                     {name}
                 </div>

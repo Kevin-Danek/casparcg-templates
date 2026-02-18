@@ -31,6 +31,7 @@
             try {
                 const data = JSON.parse(raw);
                 
+                if (data.theme) document.documentElement.classList.add(data.theme);
                 if (data.goal) document.getElementById("goal").textContent = data.goal;
                 if (data.assist) document.getElementById("assist").textContent = data.assist;
                 if (data.logo) {
@@ -49,15 +50,18 @@
 
 <body class="w-screen h-screen overflow-hidden flex flex-col justify-end p-16 relative">
     <section class="flex flex-col transition duration-200 w-96 overflow-hidden">
-        <div class="flex" id="referee" style="transform: translateY(200%)">
-            <div class="bg-gray-200 w-[calc(var(--spacing) * 20)] h-[calc(var(--spacing) * 20)] aspect-square p-2 grid place-items-center">
-                <img id="logo" src="" alt="" class="w-16 h-16 aspect-square object-contain">
+        <div class="flex items-end" id="referee" style="transform: translateY(200%)">
+            <div class="flex flex-col w-18">
+                <div class="bg-primary text-primary-foreground text-center font-mono text-xs">00:00</div>
+                <div class="bg-gray-200 w-18 h-18 aspect-square p-2 grid place-items-center">
+                    <img id="logo" src="" alt="" class="w-14 h-14 aspect-square object-contain">
+                </div>
             </div>
 
             <div class="w-full">
                 <div
                     id="goal"
-                    class="px-3 text-2xl relative flex items-center text-primary-foreground bg-primary font-bold uppercase h-12 w-full">
+                    class="px-3 text-2xl relative flex items-center text-primary-foreground bg-primary font-bold uppercase h-10 w-full">
                     {name}
                 </div>
                 <div class="bg-divider h-[2px]"></div>

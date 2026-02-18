@@ -6,76 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start Overlay</title>
     <link rel="stylesheet" href="assets/output.css" />
+    <script src="./assets/gsap.min.js"></script>
     <script name="graphics-data-definition" type="application/json+gdd" src="start.gdd.json"></script>
 
     <script>
 
-        const countdown = (() => {
-            let intervalId = null;
-
-            function pad(value) {
-                return value.toString().padStart(2, '0');
-            }
-
-            function parseTarget(input) {
-                const num = Number(input);
-                if (!isNaN(num) && /^\d+$/.test(input)) {
-                    // Unix timestamp (seconds)
-                    return new Date(num * 1000);
-                }
-                // Fallback to ISO or other supported format
-                const parsed = new Date(input);
-                return isNaN(parsed) ? null : parsed;
-            }
-
-            function formatDiff(diff) {
-                const hours = pad(Math.floor(diff / 3600));
-                const minutes = pad(Math.floor((diff % 3600) / 60));
-                const seconds = pad(diff % 60);
-                return `${hours}:${minutes}:${seconds}`;
-            }
-
-            function updateTimer(targetTime) {
-                clearInterval(intervalId);
-                const el = document.getElementById('timer');
-
-                function tick() {
-                    const msRemaining = targetTime - new Date();
-                    const diff = Math.floor(msRemaining / 1000);
-
-                    if (diff <= 0) {
-                        clearInterval(intervalId);
-                        el.textContent = '00:00:00';
-                        return;
-                    }
-                    el.textContent = formatDiff(diff);
-                }
-
-                tick(); // run immediately so we don’t wait 1 second
-                intervalId = setInterval(tick, 1000);
-            }
-
-            return {
-                start(input) {
-                    const target = parseTarget(input);
-                    if (!target) {
-                        console.error('Invalid countdown target:', input);
-                        return;
-                    }
-                    updateTimer(target);
-                },
-                stop() {
-                    clearInterval(intervalId);
-                }
-            };
-        })();
+        const timeline = new gsap.timeline()
+            .add('start')
+            .fromTo(
+                "#home-bar",
+                { y: "100%" },
+                { y: "0%", duration: 0.3 },
+                "start")
+            .fromTo(
+                "#away-bar",
+                { y: "-100%" },
+                { y: "0%", duration: 0.3 },
+                "start"
+            )
+            .add("secondaries")
+            .fromTo(
+                "#round-bar",
+                { y: "100%" },
+                { y: "0%", duration: 0.3 },
+                "secondaries"
+            )
+            .fromTo(
+                "#venue-bar",
+                { y: "-100%" },
+                { y: "0%", duration: 0.3 },
+                "secondaries"
+            )
 
         async function play() {
-            console.log('play()')
+            gsap.set("#home-bar", { y: "-100%" });
+            gsap.set("#away-bar", { y: "100%" });
+            document.getElementById("wrapper").classList.remove("hidden");
+
+            new gsap.timeline()
+                .fromTo("#divider", { opacity: 0 }, { opacity: 1, duration: 0.2 })
+                .add('start')
+                .fromTo(
+                    "#home-bar",
+                    { y: "100%" },
+                    { y: "0%", duration: 0.2 },
+                    "start")
+                .fromTo(
+                    "#away-bar",
+                    { y: "-100%" },
+                    { y: "0%", duration: 0.2 },
+                    "start"
+                )
+                .add("secondaries")
+                .fromTo(
+                    "#round-bar",
+                    { y: "100%" },
+                    { y: "0%", duration: 0.2 },
+                    "secondaries"
+                )
+                .fromTo(
+                    "#venue-bar",
+                    { y: "-100%" },
+                    { y: "0%", duration: 0.2 },
+                    "secondaries"
+                )
         }
 
         function stop() {
-            console.log('stop()')
+            new gsap.timeline()
+                .add("secondaries")
+                .fromTo(
+                    "#round-bar",
+                    { y: "0%" },
+                    { y: "100%", duration: 0.2 },
+                    "secondaries"
+                )
+                .fromTo(
+                    "#venue-bar",
+                    { y: "0%" },
+                    { y: "-100%", duration: 0.2 },
+                    "secondaries"
+                )
+                .add('start')
+                .fromTo(
+                    "#home-bar",
+                    { y: "0%" },
+                    { y: "100%", duration: 0.2 },
+                    "start")
+                .fromTo(
+                    "#away-bar",
+                    { y: "0%" },
+                    { y: "-100%", duration: 0.2 },
+                    "start"
+                )
+                .fromTo("#divider", { opacity: 1 }, { opacity: 0, duration: 0.2 })
         }
 
         function next() {
@@ -83,56 +107,75 @@
         }
 
         async function update(raw) {
-            (() => {
-                try {
-                    const data = JSON.parse(raw);
-                    countdown.start(data.countdownTo);
-                } catch (err) {
-                    console.error(err)
+            try {
+                const data = JSON.parse(raw);
+
+                if (data.round) document.getElementById("round-value").textContent = data.round;
+                if (data.venue) document.getElementById("venue-value").textContent = data.venue;
+
+                if (data.home) {
+                    if (data.home.name) document.getElementById("home-name").textContent = data.home.name;
+                    if (data.home.color) document.getElementById("home-color").setAttribute("style", "background: " + data.home.color);
+                    if (data.home.logo) document.getElementById("home-logo").setAttribute("src", data.home.logo);
                 }
-            })();
 
-            const response = await fetch("./data.json");
-            const data = await response.json();
+                if (data.away) {
+                    if (data.away.name) document.getElementById("away-name").textContent = data.away.name;
+                    if (data.away.color) document.getElementById("away-color").setAttribute("style", "background: " + data.away.color);
+                    if (data.away.logo) document.getElementById("away-logo").setAttribute("src", data.away.logo);
+                }
 
-            document.querySelector("#backdrop-home").style = `background: ${data.home.color}`;
-            document.querySelector("#backdrop-away").style = `background: ${data.away.color}`;
-
-            document.querySelector("#logo-home").src = data.home.logo;
-            document.querySelector("#logo-away").src = data.away.logo;
+            } catch (err) {
+                console.error(err)
+            }
         }
 
         window.update = update;
     </script>
 </head>
 
-<body class="bg-secondary text-primary">
-    <section class="relative w-screen h-screen overflow-hidden">
+<body class="w-screen h-screen overflow-hidden grid place-items-center justify-center px-16 py-12">
+    <section id="wrapper" class="overflow-hidden flex flex-col hidden">
 
-        <img src="./assets/images/dithering.jpg" alt=""
-            class="absolute object-cover mix-blend-overlay opacity-5 w-full h-full">
-
-        <div class="absolute w-full h-full blur-lg grid place-items-center opacity-30">
-            <img src="./assets/images/cf/badge.svg" class="h-5/6">
+        <div class="overflow-hidden mr-auto">
+            <div id="round-bar"
+                class="bg-primary bg-primary-foreground text-2xl px-4 py-2 uppercase font-medium min-w-xs mr-auto">
+                <span id="round-value"></span>
+            </div>
         </div>
 
+        <div class="overflow-hidden">
+            <div id="home-bar"
+                class="bg-primary text-primary-foreground p-6 text-5xl font-bold uppercase min-w-4xl flex justify-between items-center mr-32">
+                <div class="flex items-center gap-8">
+                    <span id="home-color" class="h-16 w-2"></span>
+                    <span id="home-name">LOREM IPSUM</span>
+                </div>
 
-        <div id="backdrop-home" class="absolute -left-[3%] w-1/3 h-[250vh] transform rotate-[30deg] -translate-y-1/2"></div>
-        <div id="backdrop-away" class="absolute right-0 w-1/3 h-[250vh] transform rotate-[30deg] -translate-y-[5.75%]"></div>
-
-        <div class="absolute w-full h-full flex items-center justify-between px-12">
-            <img id="logo-home" alt="" class="w-[420px]">
-            <img id="logo-away" alt="" class="w-[420px]">
+                <img id="home-logo" class="w-20 h-20 object-contain" />
+            </div>
         </div>
 
-        <div class="absolute w-full h-full grid place-items-center text-secondary-foreground">
-            <div></div>
-            <h1 class="flex-1 font-bold text-[7rem] uppercase mx-auto max-w-[66%] text-center">Začátek <br>přenosu</h1>
-            <h1 class="flex-1 font-medium font-mono text-[3.25rem] h-1/6 uppercase js-update text-center" id="timer">{round}</h1>
+        <div id="divider" class="bg-divider h-1 w-full"></div>
 
+        <div class="overflow-hidden">
+            <div id="away-bar"
+                class="bg-primary text-primary-foreground p-6 text-5xl font-bold uppercase min-w-4xl flex justify-between items-center ml-32">
+                <img id="away-logo" class="w-20 h-20 object-contain" />
+
+                <div class="flex items-center gap-8">
+                    <span id="away-name">LOREM IPSUM</span>
+                    <span id="away-color" class="h-16 w-2"></span>
+                </div>
+            </div>
         </div>
 
-
+        <div class="overflow-hidden ml-auto">
+            <div id="venue-bar"
+                class="bg-primary bg-primary-foreground text-2xl px-4 py-2 uppercase font-medium min-w-xs ml-auto text-right">
+                <span id="venue-value"></span>
+            </div>
+        </div>
     </section>
 </body>
 

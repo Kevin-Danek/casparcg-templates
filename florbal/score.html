@@ -9,79 +9,85 @@
     <link rel="stylesheet" href="assets/output.css" />
 
     <script>
-        const animateIn = 0.3;
-        const animateOut = 0.3;
-
         async function play() {
-            const response = await fetch("./data.json");
-            const data = await response.json();
-
-            document.documentElement.classList.add(data.match.theme);
-
-            const homeName = document.getElementById("homeName");
-            const awayName = document.getElementById("awayName");
-            const lounge = document.getElementById("lounge");
-            const round = document.getElementById("round");
-
-            homeName.textContent = data["home"]["name"];
-            awayName.textContent = data["away"]["name"];
-            lounge.textContent = data["match"]["lounge"];
-            round.textContent = data["match"]["round"];
-
             const timeline = new gsap.timeline();
-            timeline.fromTo("#score", { y: '200%' }, { y: '0%', duration: 1 })
-            timeline.timeScale(timeline.duration() / animateIn);
+            timeline.fromTo("#wrapper", { y: '200%' }, { y: '0%', duration: 0.3 })
+            document.getElementById("wrapper").classList.remove("hidden");
         }
 
         function stop() {
             const timeline = new gsap.timeline();
-            timeline.fromTo("#score", { y: '0%' }, { y: '200%', duration: 1 })
-            timeline.timeScale(timeline.duration() / animateOut);
+            timeline.fromTo("#wrapper", { y: '0%' }, { y: '200%', duration: 0.3 })
         }
 
         function next() {
             console.log('next()')
         }
 
-        window.update = update;
+        function update(raw) {
+            try {
+                const data = JSON.parse(raw);
+                console.log(data)
+
+                if (data.theme) document.documentElement.classList.add(data.theme);
+                if (data.time) document.getElementById("time-value").textContent = data.time;
+                if (data.venue) document.getElementById("venue-value").textContent = data.venue;
+                if (data.round) document.getElementById("round-value").textContent = data.round;
+                if (data.period) document.getElementById("period-value").textContent = data.period;
+
+                if (data.home) {
+                    if (data.home.name) document.getElementById("home-name").textContent = data.home.name;
+                    if (data.home.color) document.getElementById("home-color").setAttribute("style", "background: " + data.home.color);
+                    if (data.home.score) document.getElementById("home-score").textContent = data.home.score;
+                }
+
+                if (data.away) {
+                    if (data.away.name) document.getElementById("away-name").textContent = data.away.name;
+                    if (data.away.color) document.getElementById("away-color").setAttribute("style", "background: " + data.away.color);
+                    if (data.away.score) document.getElementById("away-score").textContent = data.away.score;
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
     </script>
 </head>
 
-<body class="w-screen h-screen overflow-hidden grid place-items-end p-16">
-    <div class="overflow-hidden mx-auto">
-        <section class="flex flex-col w-6xl relative" id="score"
-            style="transform: translateY(200%);">
-            <div id="upper">
-                <div class="flex w-full">
-                    <div class="flex gap-4 flex-1 items-center bg-primary text-primary-foreground px-4">
-                        <div class="h-9 w-1.5 bg-green-600"></div>
-                        <h1 id="homeName" class="text-3xl font-bold uppercase"></h1>
+<body class="w-screen h-screen overflow-hidden grid items-end justify-center px-16 py-12">
+    <div class="overflow-hidden">
+        <section class="flex flex-col relative hidden" id="wrapper">
+            <div class="h-18 grid grid-cols-2 gap-0.5 bg-divider min-w-4xl">
+                <div class="flex">
+                    <div class="w-full flex gap-4 items-center bg-primary text-primary-foreground px-4">
+                        <div id="home-color" class="h-9 w-1.5 bg-green-600"></div>
+                        <h1 id="home-name" class="text-3xl font-bold uppercase mr-8">Domácí</h1>
                     </div>
-                    <div
+                    <div id="home-score"
                         class="aspect-square bg-gray-200 text-secondary font-bold tracking-tighter w-16 grid items-center justify-center text-4xl">
-                        5 </div>
-                    <div class="h-auto w-[2px] bg-divider"></div>
-                    <div
+                        0</div>
+                </div>
+                <div class="flex">
+                    <div id="away-score"
                         class="aspect-square bg-gray-200 text-secondary font-bold tracking-tighter w-16 grid items-center justify-center text-4xl">
-                        13 </div>
-                    <div class="flex gap-4 flex-1 items-center bg-primary text-primary-foreground px-4">
-                        <h1 id="awayName" class="ml-auto text-3xl font-bold uppercase"></h1>
-                        <div class="h-9 w-1.5 bg-green-600"></div>
+                        0</div>
+                    <div class="w-full flex gap-4 items-center bg-primary text-primary-foreground px-4">
+                        <h1 id="away-name" class="ml-auto text-3xl font-bold uppercase ml-8">Hosté</h1>
+                        <div id="away-color" class="h-9 w-1.5 bg-green-600"></div>
                     </div>
                 </div>
-                <hr class="h-[2px] bg-divider">
-                <div class="bg-secondary text-secondary-foreground px-4 font-bold grid grid-cols-3">
-                    <div id="lounge" class="text-left uppercase"></div>
+            </div>
+            <hr class="h-[2px] bg-divider">
+            <div class="bg-secondary text-lg text-secondary-foreground px-4 font-bold grid grid-cols-3">
+                <div id="venue-value" class="text-left uppercase"></div>
 
-                    <div class="flex gap-1 items-center justify-center">
-                        <div class="flex flex-1">
-                            <div class="ml-auto">2nd</div>
-                        </div>
-                        <div class="h-4 w-[2px] bg-secondary-foreground"></div>
-                        <div class="flex flex-1">18:58</div>
+                <div class="flex gap-1 items-center justify-center">
+                    <div class="flex flex-1">
+                        <div id="period-value" class="ml-auto">2nd</div>
                     </div>
-                    <div id="round" class="text-right uppercase">SEMIFINÁLE PLAY-OFF</div>
+                    <div class="h-4 w-[2px] bg-secondary-foreground"></div>
+                    <div id="time-value" class="flex flex-1">18:58</div>
                 </div>
+                <div id="round-value" class="text-right uppercase">SEMIFINÁLE PLAY-OFF</div>
             </div>
         </section>
     </div>

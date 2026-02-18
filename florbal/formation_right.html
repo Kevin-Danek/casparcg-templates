@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Overlay</title>
+    <script src="./assets/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/output.css" />
+    <script name="graphics-data-definition" type="application/json+gdd" src="formation.gdd.json"></script>
+
+    <script>
+        function play() { }
+        function stop() {
+            const timeline = new gsap.timeline();
+            timeline.fromTo(".player", { x: "0%" }, { x: "200%", duration: 0.3, ease: "power3.inOut" });
+            timeline.fromTo("#nametag", { y: "0% " }, { y: "100%", duration: 0.3, ease: "power3.out" });
+        }
+
+        function next() {
+            console.log("next()");
+        }
+
+        function update(raw) {
+            try {
+                const data = JSON.parse(raw);
+
+                if (data.theme) document.documentElement.classList.add(data.theme)
+                if (data.away) {
+                    if (data.away.name) document.getElementById("team-name").textContent = data.away.name;
+                    if (data.away.logo) document.getElementById("logo").setAttribute("src", data.away.logo);
+                    
+                    const nodes = [];
+                    for (const player of data.away.players) {
+                        nodes.push(
+                            `<div style="grid-template-columns: 1.5rem 1fr;" class="player gap-2 text-sm grid ${player.post != "G" ? "bg-gray-200 text-primary" : "bg-primary text-primary-foreground"} font-bold px-3 py-1 font-sans border-b-2 border-b-divider">
+                                <span >${player.number > 0 ? player.number : ""}</span>
+                                <span>${player.name}</span>
+                            </div>`
+                        )
+                    }
+
+                    document.getElementById("players").insertAdjacentHTML("beforeend", nodes.join("\n"));
+                }
+
+                document.getElementById("wrapper").classList.remove("hidden");
+
+                new gsap.timeline()
+                    .fromTo(
+                        "#nametag",
+                        { y: "200%" },
+                        { y: "0%", duration: 0.3, ease: "power3.out" }
+                    )
+                    .fromTo(
+                        ".player",
+                        { x: "200%" },
+                        { x: "0%", stagger: { from: "end", each: 0.05 }, ease: "expo.out" }
+                    );
+
+
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        window.update = update;
+    </script>
+</head>
+
+<body class="w-screen h-screen overflow-hidden px-16 py-12 grid items-end justify-end">
+    <section id="wrapper" class="flex flex-col items-end transition duration-200 overflow-hidden hidden">
+        <div class="flex flex-col min-w-72 uppercase" id="players"></div>
+        <div class="overflow-hidden">
+            <div class="flex items-end min-w-sm" id="nametag">
+                <div class="min-w-sm">
+                    <div id="team-name"
+                        class="px-3 text-2xl relative flex justify-end items-center text-primary-foreground bg-primary font-bold uppercase h-10 w-full whitespace-nowrap">
+                        {name}
+                    </div>
+                    <div class="bg-divider h-[2px]"></div>
+                    <div id="formation-name"
+                        class="px-3 text-sm relative flex justify-end items-center text-secondary-foreground bg-secondary font-bold uppercase h-8 w-full">
+                        <span>Zahajovací formace</span>
+                    </div>
+                </div>
+                <div class="flex flex-col w-18">
+                    <div class="bg-gray-200 w-18 h-18 aspect-square p-2 grid place-items-center">
+                        <img id="logo" src="" alt="" class="w-14 h-14 aspect-square object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

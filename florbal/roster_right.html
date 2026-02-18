@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Overlay</title>
+    <script src="./assets/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/output.css" />
+
+    <script>
+        let data = {};
+
+        const maxVisible = 5;
+
+        async function play() {
+            const timeline = new gsap.timeline();
+            gsap.set("#roster-tag", { y: "-100%" });
+            gsap.set("#roster-team", { y: "-100%" });
+
+            document.getElementById("wrapper").classList.remove("hidden");
+            
+            timeline.fromTo("#roster-tag", { y: "-100% " }, { y: "0%", duration: 0.2 });
+            timeline.fromTo("#roster-team", { y: "-100% " }, { y: "0%", duration: 0.3, ease: "power3.out" });
+            timeline.fromTo(".player", { x: "100%" }, { x: "0%", stagger: { from: "start", each: 0.03 }, ease: "expo.out" });
+        }
+
+        function stop() {
+            const timeline = new gsap.timeline();
+            timeline.fromTo(".player", { x: "0%" }, { x: "200%", duration: 0.3, ease: "power3.inOut" });
+            timeline.fromTo("#roster-team", { y: "0% " }, { y: "-100%", duration: 0.3, ease: "power3.out" });
+            timeline.fromTo("#roster-tag", { y: "0% " }, { y: "-100%", duration: 0.2 });
+        }
+
+        function next() {
+            console.log('next()')
+        }
+
+        async function update(raw) {
+            try {
+                const data = JSON.parse(raw);
+
+                if (data.theme) document.documentElement.classList.add(data.theme);
+                if (data.away) {
+                    if (data.away.name) document.getElementById("team-name").textContent = data.away.name;
+                    if (data.away.color) document.getElementById("team-color").setAttribute("style", "background: " + data.away.color)
+                    if (data.away.logo) document.getElementById("team-logo").setAttribute("src", data.away.logo)
+                    if (data.away.players) {
+                        const nodes = [];
+                        for (const player of data.away.players) {
+                            nodes.push(
+                                `<div style="grid-template-columns: 1.5rem 1fr;" class="player gap-2 text-sm grid ${player.number > 0 ? "bg-gray-200 text-primary" : "bg-primary text-primary-foreground"} font-bold px-3 py-1 font-sans border-b-2 border-b-divider">
+                                    <span >${player.number > 0 ? player.number : ""}</span>
+                                    <span>${player.name}</span>
+                                </div>`
+                            )
+                        }
+    
+                        document.getElementById("players").insertAdjacentHTML("beforeend", nodes.join("\n"));
+                    }
+                    if (data.away.logo) document.getElementById("team-logo").setAttribute("src", data.away.logo)
+                }
+
+            } catch (error) {
+                console.log(error);
+                return;
+            }
+        }
+
+        window.update = update;
+    </script>
+</head>
+
+<body class="w-screen h-screen overflow-hidden px-16 py-12 grid justify-end">
+    <div id="wrapper" class="flex flex-col justify-start items-end overflow-hidden hidden">
+        <section id="roster-tag" class="bg-secondary text-secondary-foreground text-sm px-4 py-0.5 font-medium uppercase border-b-2 border-b-divider">Sestava týmu</section>
+        <div class="overflow-hidden">
+            <section id="roster-team" class="overflow-hidden flex justify-between gap-8 items-center bg-primary text-primary-foreground px-4 py-2 min-w-sm">
+                <img id="team-logo" class="w-14 h-14 object-contain" src="https://dummyimage.com/300x300/000/fff" alt="">
+                <div class="flex items-center gap-4">
+                    <span id="team-name" class="text-3xl font-bold">FBS BOHEMIANS</span>
+                    <div id="team-color" class="h-10 w-1" style="background: #FFFFFF"></div>
+                </div>
+            </section>
+        </div>
+        <section class="flex flex-col transition duration-200 w-72 overflow-hidden">
+            <div class="flex flex-col min-w-xs uppercase" id="players"></div>
+        </section>
+    </div>
+</body>
+
+</html>

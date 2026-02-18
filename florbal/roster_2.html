@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Overlay</title>
+    <script src="./assets/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/output.css" />
+
+    <script>
+        let data = {};
+        
+        const maxVisible = 5;
+
+        async function play(rawo) {
+            const targets = Array.from(document.querySelectorAll(".player"));
+            const response = await fetch("./data.json");
+            data = await response.json();
+            document.documentElement.classList.add(data.match.theme);
+        }
+
+        function stop() {
+        }
+
+        function next() {
+            console.log('next()')
+        }
+
+        async function update(raw) {
+            const targets = Array.from(document.querySelectorAll(".player"));
+            const response = await fetch("./data.json");
+            data = await response.json();
+            document.documentElement.classList.add(data.match.theme);
+
+            let team = "home";
+
+            try {
+                const data = JSON.parse(raw);
+                
+                switch (data.team) {
+                    case "home":
+                        team = "home";
+                        break;
+                    
+                    case "away":
+                        team = "away";
+                        break;
+                
+                    default:
+                        throw new Error();
+                        break;
+                }
+
+            } catch (error) {
+                return;
+            }
+            
+            const timeline = new gsap.timeline();
+            let isVisible = false;
+            
+            document.getElementById("team-name").textContent = data[team].name;
+            
+            for (const { formation, players } of data[team].roster) {
+                timeline.call(() => document.querySelector("#team-formation").textContent = formation ?? "Náhradníci");
+                
+                if (!isVisible) {
+                    timeline.fromTo("#roster", { opacity: 0 }, { opacity: 1, duration: 0.25 });
+                    isVisible = true;
+                }
+
+                for (let i = 0; i < players.length; i += maxVisible) {
+                    const chunk = players.slice(i, i + maxVisible);
+
+                    timeline.call(() => {
+                        targets.forEach((item) => item.classList.add("hidden"));
+
+                        for (let j = 0; j < chunk.length; j++) {
+                            targets[j].querySelector("h1").textContent = chunk[j].name.split(/\s+/gim).pop();
+                            targets[j].querySelector("h2").textContent = chunk[j].post;
+                            targets[j].querySelector("h3").textContent = chunk[j].jerseyNumber;
+                            targets[j].querySelector("img").src = "https://ceskyflorbal.cz/" + chunk[j].photo;
+
+
+                            targets[j].classList.remove("hidden");
+                        }
+                    });
+
+                    timeline.fromTo(".player", { y: "100% " }, { y: "0%", duration: 0.75, stagger: 0.1, ease: "power2.out" });
+                    timeline.to({}, { duration: 3 });
+                    timeline.to(".player", { y: "100% ", duration: 0.3 });
+                }
+            }
+
+            timeline.fromTo("#team-formation", { y: 0 }, { y: "-200%", duration: 0.3 })
+            timeline.fromTo("#team-list", { y: 0 }, { y: "-200%", duration: 0.3 })
+            timeline.fromTo("#team-name", { y: 0 }, { y: "-200%", duration: 0.3 })
+        }
+
+        window.update = update;
+    </script>
+</head>
+
+<body class="w-screen h-screen overflow-hidden p-16">
+    <div class="overflow-hidden">
+        <section id="roster" class="flex flex-col items-center" style="min-width: 82%">
+            <div class="overflow-hidden w-full">
+                <h1 class="px-8 py-4 font-mono text-6xl text-white uppercase bg-secondary" id="team-formation">{FORMATION}</h1>
+                <div class="bg-secondary/75 py-8" id="team-list">
+                    <div class="overflow-hidden flex gap-4 justify-center">
+                        <div class="player w-72">
+                            <header class="flex px-4 py-2 text-5xl overflow-hidden relative bg-primary">
+                                <h3 class="font-mono text-primary-foreground">
+                                    69
+                                </h3>
+                                <h4
+                                    class="font-mono bg-white text-black w-16 h-16 top-0 absolute grid place-items-center right-0 ml-auto">
+                                    C</h4>
+                            </header>
+
+                            <img src="https://dummyimage.com/400x600/000/fff" class="w-full h-96 object-cover" alt=""
+                                style="image-rendering: crisp-edges;">
+
+                            <div class="p-4 bg-secondary text-secondary-foreground">
+                                <h1 class="text-4xl font-mono uppercase">{name}</h1>
+                                <h2 class="lowercase text-xl">{post}</h2>
+                            </div>
+                        </div>
+
+                        <div class="player w-72">
+                            <header class="flex px-4 py-2 text-5xl overflow-hidden relative bg-primary">
+                                <h3 class="font-mono text-primary-foreground">
+                                    69
+                                </h3>
+                                <h4
+                                    class="font-mono bg-white text-black w-16 h-16 top-0 absolute grid place-items-center right-0 ml-auto">
+                                    C</h4>
+                            </header>
+
+                            <img src="https://dummyimage.com/400x600/000/fff" class="w-full h-96 object-cover" alt=""
+                                style="image-rendering: crisp-edges;">
+
+                            <div class="p-4 bg-secondary text-secondary-foreground">
+                                <h1 class="text-4xl font-mono uppercase">{name}</h1>
+                                <h2 class="lowercase text-xl">{post}</h2>
+                            </div>
+                        </div>
+                        <div class="player w-72">
+                            <header class="flex px-4 py-2 text-5xl overflow-hidden relative bg-primary">
+                                <h3 class="font-mono text-primary-foreground">
+                                    69
+                                </h3>
+                                <h4
+                                    class="font-mono bg-white text-black w-16 h-16 top-0 absolute grid place-items-center right-0 ml-auto">
+                                    C</h4>
+                            </header>
+
+                            <img src="https://dummyimage.com/400x600/000/fff" class="w-full h-96 object-cover" alt=""
+                                style="image-rendering: crisp-edges;">
+
+                            <div class="p-4 bg-secondary text-secondary-foreground">
+                                <h1 class="text-4xl font-mono uppercase">{name}</h1>
+                                <h2 class="lowercase text-xl">{post}</h2>
+                            </div>
+                        </div>
+
+                        <div class="player w-72">
+                            <header class="flex px-4 py-2 text-5xl overflow-hidden relative bg-primary">
+                                <h3 class="font-mono text-primary-foreground">
+                                    69
+                                </h3>
+                                <h4
+                                    class="font-mono bg-white text-black w-16 h-16 top-0 absolute grid place-items-center right-0 ml-auto">
+                                    C</h4>
+                            </header>
+
+                            <img src="https://dummyimage.com/400x600/000/fff" class="w-full h-96 object-cover" alt=""
+                                style="image-rendering: crisp-edges;">
+
+                            <div class="p-4 bg-secondary text-secondary-foreground">
+                                <h1 class="text-4xl font-mono uppercase">{name}</h1>
+                                <h2 class="lowercase text-xl">{post}</h2>
+                            </div>
+                        </div>
+
+                        <div class="player w-72">
+                            <header class="flex px-4 py-2 text-5xl overflow-hidden relative bg-primary">
+                                <h3 class="font-mono text-primary-foreground">
+                                    69
+                                </h3>
+                                <h4
+                                    class="font-mono bg-white text-black w-16 h-16 top-0 absolute grid place-items-center right-0 ml-auto">
+                                    C</h4>
+                            </header>
+
+                            <img src="https://dummyimage.com/400x600/000/fff" class="w-full h-96 object-cover" alt=""
+                                style="image-rendering: crisp-edges;">
+
+                            <div class="p-4 bg-secondary text-secondary-foreground">
+                                <h1 class="text-4xl font-mono uppercase">{name}</h1>
+                                <h2 class="lowercase text-xl">{post}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="overflow-hidden w-full">
+                <h1 class="p-4 flex items-center gap-4 w-full bg-primary text-primary-foreground font-mono text-6xl uppercase"
+                    id="team-name">
+                    {TEAM}
+                </h1>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

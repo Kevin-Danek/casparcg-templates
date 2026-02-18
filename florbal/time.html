@@ -12,23 +12,10 @@
         const animateIn = 0.3;
         const animateOut = 0.3;
 
-        async function prepare() {
-            const response = await fetch("./data.json");
-            const data = await response.json();
-
-            document.documentElement.classList.add(data.match.theme);
-            document.getElementById("name-home").textContent = data.home.abbreviation;
-            document.getElementById("name-away").textContent = data.away.abbreviation;
-            document.getElementById("color-home").style = `background: ${data.home.color}`;
-            document.getElementById("color-away").style = `background: ${data.away.color}`;
-        }
+        let shouldPlay = false;
 
         async function play() {
-            await prepare();
-            gsap.set("#time", { y: "-200%" });
-            const timeline = new gsap.timeline();
-            timeline.fromTo("#time", { y: '-200%' }, { y: '0%', duration: 1 })
-            timeline.timeScale(timeline.duration() / animateIn);
+            shouldPlay = true;
         }
 
         function stop() {
@@ -41,23 +28,50 @@
             console.log('next()')
         }
 
-        function update() {
-            prepare();
+        function update(raw) {
+            try {
+                const data = JSON.parse(raw);
+
+                if (data.theme) document.documentElement.classList.add(data.theme);
+                if (data.time) document.getElementById("time-value").textContent = data.time;
+                if (data.period) document.getElementById("period-value").textContent = data.period;
+
+                if (data.home) {
+                    if (data.home.score != undefined) document.getElementById("score-home").textContent = data.home.score;
+                    if (data.home.abbr) document.getElementById("name-home").textContent = data.home.abbr;
+                    if (data.home.color) document.getElementById("color-home").style = `background: ${data.home.color}`;
+                }
+
+                if (data.away) {
+                    if (data.away.score != undefined) document.getElementById("score-away").textContent = data.away.score;
+                    if (data.away.abbr) document.getElementById("name-away").textContent = data.away.abbr;
+                    if (data.away.color) document.getElementById("color-away").style = `background: ${data.away.color}`;
+                }
+
+                if (shouldPlay) {
+                    gsap.set("#time", { y: "-200%" });
+                    const timeline = new gsap.timeline();
+                    timeline.fromTo("#time", { y: '-200%' }, { y: '0%', duration: 1 })
+                    timeline.timeScale(timeline.duration() / animateIn);
+                    shouldPlay = false;
+                }
+            } catch (err) {
+                console.log(err);
+            }
         }
 
         window.update = update;
-        prepare();
     </script>
 </head>
 
-<body class="w-screen h-screen overflow-hidden p-16">
+<body class="w-screen h-screen overflow-hidden px-16 py-12">
     <section class="flex flex-col transition duration-200 w-72 absolute overflow-hidden">
         <div id="time" style="transform: translateY(-200%);">
             <div class="px-4 text-sm relative flex items-center justify-center text-white bg-secondary h-[30px] w-full">
                 <span class="bg-primary-foreground absolute" style="width: 2px; height: 16pt"></span>
                 <div class="grid grid-cols-2 place-items-center gap-4 text-primary-foreground">
-                    <span class="font-mono text-lg font-medium ml-auto">{period}</span>
-                    <span class="font-mono text-lg mr-auto">00:00</span>
+                    <span id="period-value" class="font-mono text-lg font-medium ml-auto">{period}</span>
+                    <span id="time-value" class="font-mono text-lg mr-auto">00:00</span>
                 </div>
                 <span></span>
             </div>
@@ -68,22 +82,34 @@
                 <div class="flex w-full bg-primary">
                     <div class="flex gap-2 flex-1 items-center bg-primary text-primary-foreground px-3">
                         <div id="color-home" class="h-6 w-1.5 "></div>
-                        <h1 id="name-home" class="text-2xl font-bold uppercase tracking-tighter leading-tight">FAB</h1>
+                        <h1 id="name-home" class="text-2xl font-bold uppercase">FAB</h1>
                     </div>
                     <div
+                        id="score-home"
                         class="aspect-square bg-gray-200 text-secondary w-12 grid items-center justify-center text-3xl font-bold tracking-tighter">
-                        5 </div>
+                        0</div>
                 </div>
                 <div class="flex w-full bg-primary">
                     <div
+                        id="score-away"
                         class="aspect-square bg-gray-200 text-secondary w-12 grid items-center justify-center text-3xl font-bold tracking-tighter">
-                        13 </div>
+                        0</div>
                     <div class="flex gap-2 flex-1 items-center bg-primary text-primary-foreground px-3">
-                        <h1 id="name-away" class="ml-auto text-2xl font-bold uppercase tracking-tighter leading-tight">
+                        <h1 id="name-away" class="ml-auto text-2xl font-bold uppercase">
                             FAB</h1>
                         <div id="color-away" class="h-6 w-1.5"></div>
                     </div>
                 </div>
+            </div>
+            <div class="flex justify-between gap-0.5">
+                <!--<div class="w-1/2 grid grid-cols-2 gap-0.5" id="homePenalties">
+                    <div class="bg-red-700 font-bold font-mono text-white text-center">00:00</div>
+                    <div class="bg-red-700 font-bold font-mono text-white text-center">00:00</div>
+                </div>
+                <div class="w-1/2 grid grid-cols-2 gap-0.5" id="awayPenalties">
+                    <div class="bg-red-700 font-bold font-mono text-white text-center">00:00</div>
+                    <div class="bg-red-700 font-bold font-mono text-white text-center">00:00</div>
+                </div>-->
             </div>
         </div>
     </section>
