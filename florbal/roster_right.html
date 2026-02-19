@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="assets/output.css" />
 
     <script>
-        let data = {};
-
-        const maxVisible = 5;
-
         async function play() {
             const timeline = new gsap.timeline();
             gsap.set("#roster-tag", { y: "-100%" });
@@ -41,15 +37,20 @@
                 const data = JSON.parse(raw);
 
                 if (data.theme) document.documentElement.classList.add(data.theme);
-                if (data.away) {
-                    if (data.away.name) document.getElementById("team-name").textContent = data.away.name;
-                    if (data.away.color) document.getElementById("team-color").setAttribute("style", "background: " + data.away.color)
-                    if (data.away.logo) document.getElementById("team-logo").setAttribute("src", data.away.logo)
-                    if (data.away.players) {
+                if (data.team) {
+                    if (data.team.name) document.getElementById("team-name").textContent = data.team.name;
+                    if (data.team.color) document.getElementById("team-color").setAttribute("style", "background: " + data.team.color)
+                    if (data.team.logo) document.getElementById("team-logo").setAttribute("src", data.team.logo)
+                    if (data.team.players) {
                         const nodes = [];
-                        for (const player of data.away.players) {
+                        for (const player of data.team.players) {
+                            let color = "bg-gray-200 text-primary";
+
+                            if (player.post == "R") color = "bg-secondary text-secondary-foreground";
+                            if (player.post == "G") color = "bg-primary text-primary-foreground";
+
                             nodes.push(
-                                `<div style="grid-template-columns: 1.5rem 1fr;" class="player gap-2 text-sm grid ${player.number > 0 ? "bg-gray-200 text-primary" : "bg-primary text-primary-foreground"} font-bold px-3 py-1 font-sans border-b-2 border-b-divider">
+                                `<div style="grid-template-columns: 1.5rem 1fr;" class="player gap-2 text-sm grid ${color} font-bold px-3 py-1 font-sans border-b-2 border-b-divider">
                                     <span >${player.number > 0 ? player.number : ""}</span>
                                     <span>${player.name}</span>
                                 </div>`
@@ -58,7 +59,7 @@
     
                         document.getElementById("players").insertAdjacentHTML("beforeend", nodes.join("\n"));
                     }
-                    if (data.away.logo) document.getElementById("team-logo").setAttribute("src", data.away.logo)
+                    if (data.team.logo) document.getElementById("team-logo").setAttribute("src", data.team.logo)
                 }
 
             } catch (error) {
@@ -66,8 +67,6 @@
                 return;
             }
         }
-
-        window.update = update;
     </script>
 </head>
 
@@ -79,7 +78,7 @@
                 <img id="team-logo" class="w-14 h-14 object-contain" src="https://dummyimage.com/300x300/000/fff" alt="">
                 <div class="flex items-center gap-4">
                     <span id="team-name" class="text-3xl font-bold">FBS BOHEMIANS</span>
-                    <div id="team-color" class="h-10 w-1" style="background: #FFFFFF"></div>
+                    <div id="team-color" class="h-10 w-2" style="background: #FFFFFF"></div>
                 </div>
             </section>
         </div>
