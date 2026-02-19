@@ -1,0 +1,6 @@
+{
+    "$schema": "https://superflytv.github.io/GraphicsDataDefinition/gdd-meta-schema/v1/schema.json",
+    "title": "Formation (Right)",
+    "type": "object",
+    "properties": {}
+}

@@ -25,7 +25,7 @@
             try {
                 const data = JSON.parse(raw);
 
-                if (data.theme) document.documentElement.classList.add(data.theme)
+                if (data.theme) document.documentElement.className = data.theme;
                 if (data.away) {
                     if (data.away.name) document.getElementById("team-name").textContent = data.away.name;
                     if (data.away.logo) document.getElementById("logo").setAttribute("src", data.away.logo);
@@ -40,6 +40,7 @@
                         )
                     }
 
+                    document.getElementById("players").innerHTML = "";
                     document.getElementById("players").insertAdjacentHTML("beforeend", nodes.join("\n"));
                 }
 

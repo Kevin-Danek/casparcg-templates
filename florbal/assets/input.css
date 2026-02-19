@@ -41,6 +41,7 @@
     --secondary-foreground: #ffffff;
 
     --divider: oklch(70.7% 0.022 261.325);
+    --neutral: oklch(92.8% 0.006 264.531);
 }
 
 .modra {
@@ -98,6 +99,7 @@
     --color-primary: var(--primary);
     --color-primary-foreground: var(--primary-foreground);
     --color-divider: var(--divider);
+    --color-neutral: var(--neutral);
 
     --color-secondary: var(--secondary);
     --color-secondary-foreground: var(--secondary-foreground);
