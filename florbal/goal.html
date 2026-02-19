@@ -32,8 +32,10 @@
                 const data = JSON.parse(raw);
                 
                 if (data.theme) document.documentElement.classList.add(data.theme);
+                if (data.time) document.getElementById("time").textContent = data.time;
                 if (data.goal) document.getElementById("goal").textContent = data.goal;
                 if (data.assist) document.getElementById("assist").textContent = data.assist;
+                if (data.score) document.getElementById("score").textContent = data.score;
                 if (data.logo) {
                     document.getElementById("logo").setAttribute("src", data.logo);
                 } else {
@@ -43,8 +45,6 @@
                 console.log(err);
             }
         }
-
-        window.update = update;
     </script>
 </head>
 
@@ -52,24 +52,27 @@
     <section class="flex flex-col transition duration-200 w-96 overflow-hidden">
         <div class="flex items-end" id="referee" style="transform: translateY(200%)">
             <div class="flex flex-col w-18">
-                <div class="bg-primary text-primary-foreground text-center font-mono text-xs">00:00</div>
-                <div class="bg-gray-200 w-18 h-18 aspect-square p-2 grid place-items-center">
+                <div id="time" class="bg-primary text-primary-foreground text-center font-mono text-xs">00:00</div>
+                <div class="bg-neutral w-18 h-18 aspect-square p-2 grid place-items-center">
                     <img id="logo" src="" alt="" class="w-14 h-14 aspect-square object-contain">
                 </div>
             </div>
 
-            <div class="w-full">
-                <div
-                    id="goal"
-                    class="px-3 text-2xl relative flex items-center text-primary-foreground bg-primary font-bold uppercase h-10 w-full">
-                    {name}
+            <div class="flex w-full">
+                <div class="min-w-sm">
+                    <div
+                        id="goal"
+                        class="px-3 text-2xl relative flex items-center text-primary-foreground bg-primary font-bold uppercase h-10 w-full">
+                        {name}
+                    </div>
+                    <div class="bg-divider h-[2px]"></div>
+                    <div
+                        id="assist"
+                        class="px-3 text-sm relative flex items-center text-secondary-foreground bg-secondary font-bold uppercase h-8 w-full">
+                        <span>Bez asistence</span>
+                    </div>
                 </div>
-                <div class="bg-divider h-[2px]"></div>
-                <div
-                    id="assist"
-                    class="px-3 text-sm relative flex items-center text-secondary-foreground bg-secondary font-bold uppercase h-8 w-full">
-                    <span>Bez asistence</span>
-                </div>
+                <div id="score" class="bg-neutral p-4 h-full w-auto aspect-square"></div>
             </div>
 
         </div>
