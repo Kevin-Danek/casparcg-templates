@@ -1,0 +1,23 @@
+{
+    "$schema": "https://superflytv.github.io/GraphicsDataDefinition/gdd-meta-schema/v1/schema.json",
+    "title": "Commentators",
+    "type": "object",
+    "properties": {
+        "names": {
+            "type": "string",
+            "title": "Name",
+            "gddType": "multi-line",
+            "gddOptions": {
+                "placeholder": "Komentátor\nKomentátor 2"
+            }
+        },
+        "tagline": {
+            "type": "string",
+            "title": "Tagline",
+            "gddType": "single-line",
+            "gddOptions": {
+                "placeholder": "Komentátoři"
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commentators</title>
+    <script src="./assets/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/output.css" />
+    <script name="graphics-data-definition" type="application/json+gdd" src="commentators.gdd.json"></script>
+
+    <script>
+        function play() {
+            const timeline = new gsap.timeline();
+            timeline.fromTo("#referee", { y: '200%' }, { y: '0%', duration: 0.3, ease: "power2.out" });
+        }
+
+        function stop() {
+            const timeline = new gsap.timeline();
+            timeline.fromTo("#referee", { y: '0%' }, { y: '200%', duration: 0.3, ease: "power2.out" });
+        }
+
+        function next() {
+            console.log('next()')
+        }
+
+        function update(raw) {
+            try {
+                const data = JSON.parse(raw);
+                const root = document.getElementById("names");
+
+                if (data.theme) document.documentElement.classList.add(data.theme);
+                if (data.names) {
+                    const names = data.names.split("\n");
+
+                    for (const name of names) {
+                        root.insertAdjacentHTML("beforeend",
+                            `<div
+                                class="px-3 text-2xl relative flex items-center text-primary-foreground bg-primary font-bold uppercase h-10 w-full">
+                                ${name}
+                            </div>
+                            <div class="bg-divider h-[2px]"></div>`
+                        )
+                    }
+                }
+
+                if (data.tagline) {
+                    root.insertAdjacentHTML("beforeend",
+                        `<div
+                            class="px-3 text-sm relative flex items-center text-secondary-foreground bg-secondary font-bold uppercase h-8 w-full">
+                            <span>${data.tagline}</span>
+                        </div>`
+                    )
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        window.update = update;
+    </script>
+</head>
+
+<body class="w-screen h-screen overflow-hidden flex flex-col justify-end p-16 relative">
+    <section class="flex flex-col transition duration-200 w-96 overflow-hidden">
+        <div class="flex" id="referee" style="transform: translateY(200%)">
+            <div
+                class="aspect-square bg-gray-200 text-secondary w-18 grid items-center justify-center text-3xl font-bold tracking-tighter">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-12 h-12 text-primary">
+                    <path d="M12 19v3" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <rect x="9" y="2" width="6" height="13" rx="3" />
+                </svg>
+            </div>
+            <div id="names" class="w-full"></div>
+        </div>
+    </section>
+</body>
+
+</html>
