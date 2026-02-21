@@ -7,15 +7,17 @@
     <title>Start Overlay</title>
     <script src="./assets/gsap.min.js"></script>
     <link rel="stylesheet" href="assets/output.css" />
+    <script name="graphics-data-definition" type="application/json+gdd" src="time.gdd.json"></script>
 
     <script>
         const animateIn = 0.3;
         const animateOut = 0.3;
 
-        let shouldPlay = false;
-
         async function play() {
-            shouldPlay = true;
+            gsap.set("#time", { y: "-200%" });
+            const timeline = new gsap.timeline();
+            timeline.fromTo("#time", { y: '-200%' }, { y: '0%', duration: 1 })
+            timeline.timeScale(timeline.duration() / animateIn);
         }
 
         function stop() {
@@ -40,6 +42,17 @@
                     if (data.home.score != undefined) document.getElementById("score-home").textContent = data.home.score;
                     if (data.home.abbr) document.getElementById("name-home").textContent = data.home.abbr;
                     if (data.home.color) document.getElementById("color-home").style = `background: ${data.home.color}`;
+                    if (data.home.penalties) {
+                        const root = document.getElementById("homePenalties");
+                        const penalties = data.home.penalties.split("\n").slice(0, 1);
+
+                        for (const penalty of penalties) {
+                            root.insertAdjacentHTML(
+                                "beforeend",
+                                `<div class="bg-red-700 font-bold font-mono text-white text-center">${penalty}</div>`
+                            )
+                        }
+                    }
                    
                 }
 
@@ -47,14 +60,17 @@
                     if (data.away.score != undefined) document.getElementById("score-away").textContent = data.away.score;
                     if (data.away.abbr) document.getElementById("name-away").textContent = data.away.abbr;
                     if (data.away.color) document.getElementById("color-away").style = `background: ${data.away.color}`;
-                }
+                    if (data.away.penalties) {
+                        const root = document.getElementById("awayPenalties");
+                        const penalties = data.home.penalties.split("\n");
 
-                if (shouldPlay) {
-                    gsap.set("#time", { y: "-200%" });
-                    const timeline = new gsap.timeline();
-                    timeline.fromTo("#time", { y: '-200%' }, { y: '0%', duration: 1 })
-                    timeline.timeScale(timeline.duration() / animateIn);
-                    shouldPlay = false;
+                        for (const penalty of penalties) {
+                            root.insertAdjacentHTML(
+                                "beforeend",
+                                `<div class="bg-red-700 font-bold font-mono text-white text-center">${penalty}</div>`
+                            )
+                        }
+                    }
                 }
             } catch (err) {
                 console.log(err);
@@ -102,16 +118,12 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="flex justify-between gap-0.5">
+            <div class="flex justify-between gap-0.5">
                 <div class="w-1/2 grid grid-cols-2 gap-0.5" id="homePenalties">
-                    <div class="bg-red-700 font-bold font-mono text-white text-center">00:00</div>
-                    <div class="bg-red-700 font-bold font-mono text-white text-center">00:00</div>
                 </div>
                 <div class="w-1/2 grid grid-cols-2 gap-0.5" id="awayPenalties">
-                    <div class="bg-red-700 font-bold font-mono text-white text-center">00:00</div>
-                    <div class="bg-red-700 font-bold font-mono text-white text-center">00:00</div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </section>
 </body>
