@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map Ban Overlay</title>
+    <script src="./assets/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/output.css" />
+    <script src="./match_maps.js"></script>
+
+    <script>
+        const POOL = {
+            "de_anubis": {
+                map: "Anubis",
+                image: "./assets/maps/de_anubis.png"
+            },
+            "de_overpass": {
+                map: "Overpass",
+                image: "./assets/maps/de_overpass.png"
+            },
+            "de_inferno": {
+                map: "Inferno",
+                image: "./assets/maps/de_inferno.png"
+            },
+            "de_mirage": {
+                map: "Mirage",
+                image: "./assets/maps/de_mirage.png"
+            },
+            "de_dust2": {
+                map: "Dust II",
+                image: "./assets/maps/de_dust2.png"
+            },
+            "de_nuke": {
+                map: "Nuke",
+                image: "./assets/maps/de_nuke.png"
+            },
+            "de_ancient": {
+                map: "Ancient",
+                image: "./assets/maps/de_ancient.png"
+            },
+            "de_train": {
+                map: "Train",
+                image: "./assets/maps/de_train.png"
+            },
+            "de_vertigo": {
+                map: "Vertigo",
+                image: "./assets/maps/de_vertigo.png"
+            },
+            "de_warden": {
+                map: "Warden",
+                image: "./assets/maps/de_warden.png"
+            },
+            "de_stronghold": {
+                map: "Stronghold",
+                image: "./assets/maps/de_stronghold.png"
+            },
+            "cs_alpine": {
+                map: "Alpine",
+                image: "./assets/maps/cs_alpine.png"
+            },
+            "cs_office": {
+                map: "Office",
+                image: "./assets/maps/cs_office.png"
+            },
+            "cs_italy": {
+                map: "Italy",
+                image: "./assets/maps/cs_italy.png"
+            }
+        }
+
+        const summaryHeader = new SummaryHeader('summary-header');
+        const summaryApp = new MatchSummaryApp('match-summary', POOL);
+
+        function update(raw) {
+            if (raw.match) {
+                summaryHeader.render(raw.match);
+            }
+            if (raw.veto) {
+                summaryApp.render(raw.veto);
+            }
+        }
+
+        function play() {
+            const tl = gsap.timeline();
+            tl.add(summaryHeader.animateIn());
+            tl.add(summaryApp.animateIn(), "-=0.6"); // Karty map vyjedou dřív, než header úplně doletí
+        }
+    </script>
+</head>
+
+<body class="w-screen h-screen overflow-hidden px-16 py-12 flex flex-col bg-primary text-primary-foreground">
+
+    <div id="summary-header"></div>
+
+    <div id="match-summary" class="flex-grow flex items-center justify-center py-12">
+        </div>
+</body>
+
+</html>
